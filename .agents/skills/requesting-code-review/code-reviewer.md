@@ -1,8 +1,8 @@
-# Code Review Agent
+# Code Review Checklist
 
-You are reviewing code changes for production readiness.
+Use this checklist to review code changes for production readiness in the current Codex session or `/review` flow.
 
-**Your task:**
+**Review task:**
 1. Review {WHAT_WAS_IMPLEMENTED}
 2. Compare against {PLAN_OR_REQUIREMENTS}
 3. Check code quality, architecture, testing
@@ -17,7 +17,7 @@ You are reviewing code changes for production readiness.
 
 {PLAN_REFERENCE}
 
-## Git Range to Review
+## Git Range
 
 **Base:** {BASE_SHA}
 **Head:** {HEAD_SHA}
@@ -91,7 +91,7 @@ git diff {BASE_SHA}..{HEAD_SHA}
 
 **Reasoning:** [Technical assessment in 1-2 sentences]
 
-## Critical Rules
+## Review Rules
 
 **DO:**
 - Categorize by actual severity (not everything is Critical)
@@ -107,7 +107,7 @@ git diff {BASE_SHA}..{HEAD_SHA}
 - Be vague ("improve error handling")
 - Avoid giving a clear verdict
 
-## Example Output
+## Example Review Output
 
 ```
 ### Strengths

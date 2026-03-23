@@ -5,14 +5,14 @@ description: Use when completing tasks, implementing major features, or before m
 
 # Requesting Code Review
 
-Dispatch superpowers:code-reviewer subagent to catch issues before they cascade. The reviewer gets precisely crafted context for evaluation — never your session's history. This keeps the reviewer focused on the work product, not your thought process, and preserves your own context for continued work.
+Use this skill to run a focused review before moving on, opening a PR, or declaring a change done. Prefer a review that is grounded in the actual git diff and requirements, not in vague recollection.
 
 **Core principle:** Review early, review often.
 
 ## When to Request Review
 
 **Mandatory:**
-- After each task in subagent-driven development
+- After each major implementation batch
 - After completing major feature
 - Before merge to main
 
@@ -25,13 +25,30 @@ Dispatch superpowers:code-reviewer subagent to catch issues before they cascade.
 
 **1. Get git SHAs:**
 ```bash
-BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
+BASE_SHA=$(git merge-base HEAD origin/main 2>/dev/null || git rev-parse HEAD~1)
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 
-**2. Dispatch code-reviewer subagent:**
+If `origin/main` is unavailable, replace it with the right base branch or explicit commit.
 
-Use Task tool with superpowers:code-reviewer type, fill template at `code-reviewer.md`
+**2. Gather review context:**
+
+```bash
+git diff --stat "$BASE_SHA..$HEAD_SHA"
+git diff "$BASE_SHA..$HEAD_SHA"
+```
+
+Also collect the requirement source you are reviewing against:
+- plan doc
+- ticket
+- acceptance criteria
+- user request in this thread
+
+**3. Run the review in Codex:**
+
+- Default: ask for a review in the current Codex session and use the checklist in `code-reviewer.md`
+- If `/review` is available and the repo is ready, use it
+- Only use a separate reviewer agent when the user explicitly asks for delegation or subagents
 
 **Placeholders:**
 - `{WHAT_WAS_IMPLEMENTED}` - What you just built
@@ -40,7 +57,7 @@ Use Task tool with superpowers:code-reviewer type, fill template at `code-review
 - `{HEAD_SHA}` - Ending commit
 - `{DESCRIPTION}` - Brief summary
 
-**3. Act on feedback:**
+**4. Act on feedback:**
 - Fix Critical issues immediately
 - Fix Important issues before proceeding
 - Note Minor issues for later
@@ -53,17 +70,17 @@ Use Task tool with superpowers:code-reviewer type, fill template at `code-review
 
 You: Let me request code review before proceeding.
 
-BASE_SHA=$(git log --oneline | grep "Task 1" | head -1 | awk '{print $1}')
+BASE_SHA=$(git merge-base HEAD origin/main)
 HEAD_SHA=$(git rev-parse HEAD)
 
-[Dispatch superpowers:code-reviewer subagent]
-  WHAT_WAS_IMPLEMENTED: Verification and repair functions for conversation index
-  PLAN_OR_REQUIREMENTS: Task 2 from docs/superpowers/plans/deployment-plan.md
-  BASE_SHA: a7981ec
-  HEAD_SHA: 3df7661
-  DESCRIPTION: Added verifyIndex() and repairIndex() with 4 issue types
+[Run review using code-reviewer.md checklist against BASE_SHA..HEAD_SHA]
+ WHAT_WAS_IMPLEMENTED: Verification and repair functions for conversation index
+ PLAN_REFERENCE: Task 2 from docs/superpowers/plans/deployment-plan.md
+ BASE_SHA: a7981ec
+ HEAD_SHA: 3df7661
+ DESCRIPTION: Added verifyIndex() and repairIndex() with 4 issue types
 
-[Subagent returns]:
+[Review returns]:
   Strengths: Clean architecture, real tests
   Issues:
     Important: Missing progress indicators
@@ -76,7 +93,7 @@ You: [Fix progress indicators]
 
 ## Integration with Workflows
 
-**Subagent-Driven Development:**
+**Implementation Batches:**
 - Review after EACH task
 - Catch issues before they compound
 - Fix before moving to next task
@@ -96,10 +113,11 @@ You: [Fix progress indicators]
 - Ignore Critical issues
 - Proceed with unfixed Important issues
 - Argue with valid technical feedback
+- Review against memory alone instead of the actual diff
 
 **If reviewer wrong:**
 - Push back with technical reasoning
 - Show code/tests that prove it works
 - Request clarification
 
-See template at: requesting-code-review/code-reviewer.md
+See checklist at: `requesting-code-review/code-reviewer.md`
