@@ -3,4 +3,5 @@
 # Nested repositories and worktree directories are managed independently.
 /codex-worktree-base/
 /codex-worktree-head/
+/external/
 /projects/
