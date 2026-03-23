@@ -12,6 +12,7 @@
 - Personal Codex defaults belong in `~/.codex/config.toml` and `~/.codex/AGENTS.md`.
 - Personal custom skills belong in `~/.agents/skills`.
 - Team-shared workspace skills belong in `/Users/yangshu/Codex/.agents/skills`.
+- Large third-party skills should be mirrored under `/Users/yangshu/Codex/vendor/skills` and activated on demand via `scripts/manage-vendored-skill.sh`.
 - Workspace-specific Codex behavior belongs in `/Users/yangshu/Codex/.codex/config.toml` and this file.
 - When a task targets one repo, `cd` into that repo before running git status, diff, branch, or test commands.
 - Do not treat changes in child repositories as changes to the root workspace repository.
@@ -31,8 +32,8 @@
 - Use the team skill `webpage-capture-markdown` when a webpage should be preserved as a local markdown artifact instead of only summarized in chat.
 - Use `systematic-debugging` before proposing fixes for bugs, failures, or unexpected behavior.
 - Use `requesting-code-review` before merge or after major implementation work.
-- Use `playwright-best-practices` when writing or stabilizing Playwright tests beyond basic browser automation.
-- Keep `skills-lock.json` in sync with installed repo-level marketplace skills.
+- Activate vendored `playwright-best-practices` only when writing or stabilizing Playwright tests beyond basic browser automation.
+- Keep `skills-lock.json` in sync with installed or vendored marketplace skills.
 - Prefer preparing a safe upgrade plan and verification steps before changing binaries under `/Applications`.
 - Keep changes reproducible: if a version check or migration step is useful twice, put it into `scripts/`.
 
