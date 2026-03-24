@@ -36,6 +36,20 @@
 - Keep `skills-lock.json` in sync with installed or vendored marketplace skills.
 - Prefer preparing a safe upgrade plan and verification steps before changing binaries under `/Applications`.
 - Keep changes reproducible: if a version check or migration step is useful twice, put it into `scripts/`.
+- For repositories in this workspace, prefer the GitHub flow: create a short-lived branch, run `requesting-code-review`, open a pull request, and merge only after the required review gate is satisfied or intentionally bypassed as the repository admin.
+- Treat `CODEOWNERS` as the routing layer for review responsibility. When a repository needs owner-based review, update `CODEOWNERS` rather than relying on chat memory.
+
+## Multi-tool workflow
+
+- GitHub is the system of record for repository history, protected branches, pull requests, and review state.
+- Codex is the highest-autonomy tool for repository changes, repo-local verification, and structured code review before or during a PR.
+- Cursor is best used for fast interactive editing, local inspection, and smaller in-editor iterations; keep its changes inside feature branches that still flow through GitHub review.
+- OpenClaw is operating as a local multi-agent gateway and fallback orchestrator. Use it for cross-provider routing and automation, not as a replacement for GitHub branch policy or repository truth.
+- Keep one source of truth for each layer:
+  - repository policy: GitHub settings and checked-in `.github/` files
+  - Codex behavior: `~/.codex/` plus repo `.codex/` and `AGENTS.md`
+  - Cursor behavior: local Cursor settings and project state
+  - OpenClaw orchestration: `~/.openclaw/openclaw.json` and its workspace
 
 ## Verification
 
