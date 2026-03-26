@@ -56,6 +56,7 @@
 - Treat checked-in repository files as the shared baton between Codex and Cursor. Do not rely on chat memory to transfer state.
 - Repository `AGENTS.md` is the shared workflow contract. Keep any repo-level Cursor rule in `.cursor/rules/` aligned with the nearest `AGENTS.md`.
 - When a repository has `docs/agent-handoff.md`, update it before pausing, switching tools, or asking another agent to continue.
+- Use `/Users/yangshu/Codex/scripts/update-agent-handoff.sh <repo-path>` to refresh `docs/agent-handoff.md` branch, changed-file, and verification sections without overwriting the human summary sections.
 - Before taking over existing work in either Codex or Cursor, read:
   - the nearest `AGENTS.md`
   - `docs/agent-handoff.md` when present
