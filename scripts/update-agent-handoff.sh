@@ -78,6 +78,11 @@ Update it before pausing work, switching tools, or asking another agent to conti
 
 - _Replace with the current task in one sentence._
 
+## Source artifacts
+
+- Stitch: `_replace-me_`
+- AI Studio: `_replace-me_`
+
 ## Branch
 
 - Current branch: `_replace-me_`

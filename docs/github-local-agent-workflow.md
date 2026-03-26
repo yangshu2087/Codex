@@ -38,6 +38,14 @@ This workspace uses GitHub as the repository control plane and uses local agents
 - If a workflow repeats across tools, document the shared sequence once and keep the tools aligned to it.
 - Keep external channel exposure documented near both the OpenClaw config and the Codex workspace docs, so repository work does not silently assume a private bot surface.
 
+## Google prototyping flow
+
+- Use Stitch first for UI intent and keep its artifacts under `design/stitch/` in the target repository.
+- Use Google AI Studio second for runnable prototypes and keep its exports and notes under `prototypes/ai-studio/`.
+- Use Codex third to convert generated artifacts into repository-native code, tests, and reviewable changes on a normal feature branch.
+- Treat raw Stitch and AI Studio output as draft material, not merge-ready production code.
+- Record source artifact paths in `docs/agent-handoff.md` before switching between Google tools, Codex, and Cursor.
+
 ## Current collaboration baseline
 
 - `Codex` repository: public, branch-protected, `CODEOWNERS` present

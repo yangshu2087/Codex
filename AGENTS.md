@@ -51,6 +51,15 @@
   - Cursor behavior: local Cursor settings and project state
   - OpenClaw orchestration: `~/.openclaw/openclaw.json` and its workspace
 
+## Stitch / AI Studio / Codex workflow
+
+- Use Google Stitch for design intent and UI exploration first, not for production-ready repository structure.
+- Store Stitch prompts, screenshots, and exports inside the target repository under `design/stitch/` so Codex and Cursor can inspect the exact source artifact instead of relying on chat memory.
+- Use Google AI Studio for runnable prototype generation second, and keep generated app exports, prompt notes, and integration caveats under `prototypes/ai-studio/`.
+- Use Codex third to turn the exported prototype into repository-native code: move logic into the real app structure, wire production dependencies, add tests, and align to local `AGENTS.md` and GitHub review rules.
+- Do not merge raw Stitch or AI Studio output straight to `main` without an explicit Codex or human cleanup pass.
+- When work starts from Stitch or AI Studio, record the artifact paths and intended next step in `docs/agent-handoff.md` before switching tools or opening a PR.
+
 ## Codex and Cursor shared protocol
 
 - Treat checked-in repository files as the shared baton between Codex and Cursor. Do not rely on chat memory to transfer state.
