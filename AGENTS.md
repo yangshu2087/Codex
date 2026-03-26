@@ -51,6 +51,20 @@
   - Cursor behavior: local Cursor settings and project state
   - OpenClaw orchestration: `~/.openclaw/openclaw.json` and its workspace
 
+## Codex and Cursor shared protocol
+
+- Treat checked-in repository files as the shared baton between Codex and Cursor. Do not rely on chat memory to transfer state.
+- Repository `AGENTS.md` is the shared workflow contract. Keep any repo-level Cursor rule in `.cursor/rules/` aligned with the nearest `AGENTS.md`.
+- When a repository has `docs/agent-handoff.md`, update it before pausing, switching tools, or asking another agent to continue.
+- Before taking over existing work in either Codex or Cursor, read:
+  - the nearest `AGENTS.md`
+  - `docs/agent-handoff.md` when present
+  - `git branch --show-current`
+  - `git status --short`
+  - `git diff --stat`
+- If Codex and Cursor need to work in parallel, keep them on separate branches or separate worktrees. Do not let both tools edit the same dirty working tree at once.
+- Use GitHub PRs and checked-in `.github/` files as the durable record of what changed, why it changed, and what review gate applies.
+
 ## Verification
 
 - After changing Codex config or skills, verify with `codex --version`, `codex features list`, `codex mcp list`, and `scripts/check-codex-upgrade.sh`.

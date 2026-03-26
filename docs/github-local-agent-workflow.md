@@ -28,6 +28,7 @@ This workspace uses GitHub as the repository control plane and uses local agents
 - Cursor is configured as a permissive local editor surface. Its current CLI config shows allowlist approvals, disabled sandboxing, and commit/PR attribution enabled.
 - OpenClaw is configured as a local orchestration layer with mixed providers, including `openai-codex`, `cursor-cli`, `anthropic`, `openrouter`, and local `ollama`.
 - OpenClaw's default workspace is `/Users/yangshu/.openclaw/workspace`, which means it should not be treated as the source of truth for repository policy. GitHub and checked-in repo files should stay authoritative.
+- OpenClaw's Telegram channel is intentionally exposed in open mode on this machine. Treat Telegram as a public ingress path unless the channel policy is explicitly tightened again.
 
 ## Coordination rules
 
@@ -35,6 +36,7 @@ This workspace uses GitHub as the repository control plane and uses local agents
 - Do not let Cursor or OpenClaw bypass repository review expectations just because they can edit locally.
 - If a workflow needs a review gate, prefer GitHub protection plus `CODEOWNERS` over tool-specific memory.
 - If a workflow repeats across tools, document the shared sequence once and keep the tools aligned to it.
+- Keep external channel exposure documented near both the OpenClaw config and the Codex workspace docs, so repository work does not silently assume a private bot surface.
 
 ## Current collaboration baseline
 
