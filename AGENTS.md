@@ -60,6 +60,15 @@
 - Do not merge raw Stitch or AI Studio output straight to `main` without an explicit Codex or human cleanup pass.
 - When work starts from Stitch or AI Studio, record the artifact paths and intended next step in `docs/agent-handoff.md` before switching tools or opening a PR.
 
+## Front-end design workflow
+
+- For front-end tasks, prefer a design-first loop: design inputs -> implementation -> browser verification -> UI review.
+- Start with the highest-signal design artifact available: Figma, checked-in design docs, screenshots, or reference shots.
+- Keep front-end repo guidance close to the code by checking in `design/README.md`, `design/design-system.md`, and `docs/ui-acceptance-checklist.md` where UI work happens.
+- Use the workspace skill `frontend-design-review` for UI implementation and polish work that needs spacing, typography, states, responsive behavior, and visual verification.
+- Prefer tokenized values and reusable components over one-off CSS when refining UI.
+- When Context7 is authenticated, prefer it for current framework and component-library docs during front-end work.
+
 ## Codex and Cursor shared protocol
 
 - Treat checked-in repository files as the shared baton between Codex and Cursor. Do not rely on chat memory to transfer state.
