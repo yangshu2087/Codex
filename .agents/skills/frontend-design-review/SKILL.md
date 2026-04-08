@@ -11,11 +11,13 @@ Use this skill when Codex should behave like a design-aware front-end implemente
 
 Read the highest-signal design inputs available before changing code:
 
-1. Figma links or node IDs
-2. Repository design files under `design/`
-3. Screenshots or reference images
-4. Existing component library and tokens
-5. Product spec or acceptance notes in repo docs, Notion, or Google Drive
+1. Repository `DESIGN.md`
+2. Workspace or repo design shortlist docs when present
+3. Figma links or node IDs
+4. Repository design files under `design/`
+5. Screenshots or reference images
+6. Existing component library and tokens
+7. Product spec or acceptance notes in repo docs, Notion, or Google Drive
 
 If a design source is missing, say so explicitly and continue with the strongest remaining source instead of pretending the design is fully specified.
 
@@ -43,6 +45,7 @@ If a design source is missing, say so explicitly and continue with the strongest
    - visible focus states
    - contrast awareness
 5. When implementing from Figma, preserve intent rather than copying every raw pixel token if that would fight the local design system.
+6. If using an external inspiration reference, state it explicitly and translate it into local rules rather than copying the original brand.
 
 ## Verification loop
 
@@ -68,6 +71,8 @@ Do not stop at “the code compiles.” Run a visual loop when possible:
 
 In repositories that follow the workspace conventions:
 
+- inspect `DESIGN.md` first
+- inspect `docs/design-reference-shortlist.md` when present
 - inspect `design/design-system.md` if present
 - inspect `design/tokens.example.json` or the real token file if present
 - inspect `docs/ui-acceptance-checklist.md`
@@ -78,6 +83,7 @@ In repositories that follow the workspace conventions:
 When summarizing work, include:
 
 1. what design inputs were used
-2. what UI layers changed
-3. what states and breakpoints were checked
-4. what remains visually unverified
+2. what external inspirations were chosen, if any
+3. what UI layers changed
+4. what states and breakpoints were checked
+5. what remains visually unverified

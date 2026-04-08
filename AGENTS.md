@@ -66,10 +66,13 @@
 
 - For front-end tasks, prefer a design-first loop: design inputs -> implementation -> browser verification -> UI review.
 - Start with the highest-signal design artifact available: Figma, checked-in design docs, screenshots, or reference shots.
+- Read repository `DESIGN.md` before changing UI. In this workspace, `/Users/yangshu/Codex/DESIGN.md` is the team baseline when a repo has not defined a narrower design source of truth yet.
+- Use `/Users/yangshu/Codex/docs/design-reference-shortlist.md` as the approved inspiration map for external visual references. Pick 1-2 references that fit the task and translate them into local tokens and components instead of cloning them.
 - Keep front-end repo guidance close to the code by checking in `design/README.md`, `design/design-system.md`, and `docs/ui-acceptance-checklist.md` where UI work happens.
 - Use the workspace skill `frontend-design-review` for UI implementation and polish work that needs spacing, typography, states, responsive behavior, and visual verification.
 - Prefer tokenized values and reusable components over one-off CSS when refining UI.
 - When Context7 is authenticated, prefer it for current framework and component-library docs during front-end work.
+- Do not treat third-party `DESIGN.md` files as direct brand templates; adapt them into project-approved design rules first.
 
 ## Codex and Cursor shared protocol
 
@@ -90,3 +93,10 @@
 
 - After changing Codex config or skills, verify with `codex --version`, `codex features list`, `codex mcp list`, and `scripts/check-codex-upgrade.sh`.
 - If behavior depends on project instructions, confirm Codex is launched from the intended directory so the nearest `AGENTS.md` wins.
+
+## DESIGN.md workflow
+
+- Keep repository-level `DESIGN.md` as the source of truth for look-and-feel constraints used by AI agents.
+- For front-end tasks, read `DESIGN.md` before implementation and follow its token, component, state, and responsive rules.
+- Use `/Users/yangshu/Codex/docs/design-reference-shortlist.md` only as inspiration calibration, not as permission to clone brand visuals.
+- Before finalizing UI work, run narrow code checks and at least one browser visual verification pass.
