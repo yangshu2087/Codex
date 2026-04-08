@@ -61,6 +61,9 @@ echo ""
 echo "[3/6] Runtime pressure and process health"
 echo "-----------------------------------------"
 "$SCRIPTS_DIR/codex-runtime-health.sh" || true
+echo ""
+echo "Guard decision (single source):"
+"$SCRIPTS_DIR/codex-runtime-health.sh" --decision-only || true
 
 echo ""
 echo "[4/6] Session + SQLite footprint audit"

@@ -33,6 +33,7 @@
 - Use the team skill `agent-handoff-governor` before pausing or switching between Codex/Cursor so `docs/agent-handoff.md` is refreshed with branch, changed files, and verification evidence.
 - Use `systematic-debugging` before proposing fixes for bugs, failures, or unexpected behavior.
 - Use `requesting-code-review` before merge or after major implementation work.
+- For quality-critical complex tasks, use the 5-field card and three-stage acceptance template in `/Users/yangshu/Codex/docs/codex-task-card-and-acceptance.md`.
 - Activate vendored `playwright-best-practices` only when writing or stabilizing Playwright tests beyond basic browser automation.
 - Keep `skills-lock.json` in sync with installed or vendored marketplace skills.
 - Prefer preparing a safe upgrade plan and verification steps before changing binaries under `/Applications`.
@@ -85,6 +86,7 @@
 - If Codex and Cursor need to work in parallel, keep them on separate branches or separate worktrees. Do not let both tools edit the same dirty working tree at once.
 - For persistent task isolation, use `/Users/yangshu/Codex/scripts/worktree-create.sh` and follow naming/lifecycle rules in `/Users/yangshu/Codex/docs/worktree-governance.md`.
 - For periodic hygiene, run `/Users/yangshu/Codex/scripts/worktree-weekly-clean.sh --repo <repo-path>` in audit mode before any apply cleanup.
+- For runtime pressure gating, use `/Users/yangshu/Codex/scripts/codex-run-guarded.sh` (decision sourced from `/Users/yangshu/Codex/scripts/codex-runtime-health.sh` only).
 - Use GitHub PRs and checked-in `.github/` files as the durable record of what changed, why it changed, and what review gate applies.
 
 ## Verification

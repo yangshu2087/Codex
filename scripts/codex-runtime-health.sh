@@ -1,6 +1,28 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+usage() {
+  cat <<'USAGE'
+Usage:
+  codex-runtime-health.sh [--decision-only|--json]
+
+Options:
+  --decision-only   Print machine-readable key=value output for guard scripts.
+  --json            Print a compact JSON summary.
+  -h, --help        Show help.
+USAGE
+}
+
+mode="full"
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --decision-only) mode="decision"; shift ;;
+    --json) mode="json"; shift ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "error: unknown argument: $1" >&2; usage >&2; exit 1 ;;
+  esac
+done
+
 LOAD_RAW="$(uptime)"
 LOAD_1M="$(python3 - <<'PY'
 import re,subprocess
@@ -34,6 +56,36 @@ then
   STATUS="high-pressure"
 fi
 
+RECOMMENDED_PROFILE="default"
+RECOMMENDED_THREADS=4
+if [[ "$STATUS" == "high-pressure" ]]; then
+  RECOMMENDED_PROFILE="quick"
+  RECOMMENDED_THREADS=1
+fi
+
+if [[ "$mode" == "decision" ]]; then
+  echo "STATUS=$STATUS"
+  echo "LOAD_1M=$LOAD_1M"
+  echo "SWAP_USED_MIB=$SWAP_USED_MIB"
+  echo "RECOMMENDED_PROFILE=$RECOMMENDED_PROFILE"
+  echo "RECOMMENDED_THREADS=$RECOMMENDED_THREADS"
+  exit 0
+fi
+
+if [[ "$mode" == "json" ]]; then
+  python3 - <<PY
+import json
+print(json.dumps({
+  "status": "${STATUS}",
+  "load_1m": float("${LOAD_1M}"),
+  "swap_used_mib": float("${SWAP_USED_MIB}"),
+  "recommended_profile": "${RECOMMENDED_PROFILE}",
+  "recommended_threads": int("${RECOMMENDED_THREADS}")
+}, ensure_ascii=False))
+PY
+  exit 0
+fi
+
 echo "Codex Runtime Health"
 echo "===================="
 printf 'Timestamp:            %s\n' "$(date)"
@@ -42,6 +94,7 @@ printf 'Swap used (MiB):      %s\n' "$SWAP_USED_MIB"
 printf 'Current directory:    %s\n' "$PWD"
 printf 'Codex CLI:            %s\n' "$(codex --version 2>/dev/null || echo unavailable)"
 printf 'Codex path:           %s\n' "$(command -v codex 2>/dev/null || echo unavailable)"
+
 
 echo ""
 echo "Uptime snapshot:"
@@ -86,3 +139,9 @@ else
   echo "- Daily default: gpt-5.4/high"
   echo "- Parallel subagents: up to 4"
 fi
+
+echo ""
+echo "Decision (machine-readable):"
+echo "STATUS=$STATUS"
+echo "RECOMMENDED_PROFILE=$RECOMMENDED_PROFILE"
+echo "RECOMMENDED_THREADS=$RECOMMENDED_THREADS"
