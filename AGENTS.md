@@ -83,6 +83,8 @@
   - `git status --short`
   - `git diff --stat`
 - If Codex and Cursor need to work in parallel, keep them on separate branches or separate worktrees. Do not let both tools edit the same dirty working tree at once.
+- For persistent task isolation, use `/Users/yangshu/Codex/scripts/worktree-create.sh` and follow naming/lifecycle rules in `/Users/yangshu/Codex/docs/worktree-governance.md`.
+- For periodic hygiene, run `/Users/yangshu/Codex/scripts/worktree-weekly-clean.sh --repo <repo-path>` in audit mode before any apply cleanup.
 - Use GitHub PRs and checked-in `.github/` files as the durable record of what changed, why it changed, and what review gate applies.
 
 ## Verification
