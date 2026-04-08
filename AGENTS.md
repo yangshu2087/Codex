@@ -32,6 +32,8 @@
 - Use the team skill `webpage-capture-markdown` when a webpage should be preserved as a local markdown artifact instead of only summarized in chat.
 - Use `systematic-debugging` before proposing fixes for bugs, failures, or unexpected behavior.
 - Use `requesting-code-review` before merge or after major implementation work.
+- Use `docs/codex-capability-governance.md` and `docs/codex-capability-registry.md` as the workspace source of truth for capability layering, ownership, and retirement rules.
+- Run `scripts/codex-capability-audit.sh` before expanding the default skill/plugin/profile surface.
 - Activate vendored `playwright-best-practices` only when writing or stabilizing Playwright tests beyond basic browser automation.
 - Keep `skills-lock.json` in sync with installed or vendored marketplace skills.
 - Prefer preparing a safe upgrade plan and verification steps before changing binaries under `/Applications`.
