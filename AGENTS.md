@@ -32,6 +32,8 @@
 - Use the team skill `webpage-capture-markdown` when a webpage should be preserved as a local markdown artifact instead of only summarized in chat.
 - Use `systematic-debugging` before proposing fixes for bugs, failures, or unexpected behavior.
 - Use `requesting-code-review` before merge or after major implementation work.
+- Use `docs/codex-capability-governance.md` and `docs/codex-capability-registry.md` as the workspace source of truth for capability layering, ownership, and retirement rules.
+- Run `scripts/codex-capability-audit.sh` before expanding the default skill/plugin/profile surface.
 - Activate vendored `playwright-best-practices` only when writing or stabilizing Playwright tests beyond basic browser automation.
 - Keep `skills-lock.json` in sync with installed or vendored marketplace skills.
 - Prefer preparing a safe upgrade plan and verification steps before changing binaries under `/Applications`.
@@ -60,6 +62,18 @@
 - Do not merge raw Stitch or AI Studio output straight to `main` without an explicit Codex or human cleanup pass.
 - When work starts from Stitch or AI Studio, record the artifact paths and intended next step in `docs/agent-handoff.md` before switching tools or opening a PR.
 
+## Front-end design workflow
+
+- For front-end tasks, prefer a design-first loop: design inputs -> implementation -> browser verification -> UI review.
+- Start with the highest-signal design artifact available: Figma, checked-in design docs, screenshots, or reference shots.
+- Read repository `DESIGN.md` before changing UI. In this workspace, `/Users/yangshu/Codex/DESIGN.md` is the team baseline when a repo has not defined a narrower design source of truth yet.
+- Use `/Users/yangshu/Codex/docs/design-reference-shortlist.md` as the approved inspiration map for external visual references. Pick 1-2 references that fit the task and translate them into local tokens and components instead of cloning them.
+- Keep front-end repo guidance close to the code by checking in `design/README.md`, `design/design-system.md`, and `docs/ui-acceptance-checklist.md` where UI work happens.
+- Use the workspace skill `frontend-design-review` for UI implementation and polish work that needs spacing, typography, states, responsive behavior, and visual verification.
+- Prefer tokenized values and reusable components over one-off CSS when refining UI.
+- When Context7 is authenticated, prefer it for current framework and component-library docs during front-end work.
+- Do not treat third-party `DESIGN.md` files as direct brand templates; adapt them into project-approved design rules first.
+
 ## Codex and Cursor shared protocol
 
 - Treat checked-in repository files as the shared baton between Codex and Cursor. Do not rely on chat memory to transfer state.
@@ -79,3 +93,10 @@
 
 - After changing Codex config or skills, verify with `codex --version`, `codex features list`, `codex mcp list`, and `scripts/check-codex-upgrade.sh`.
 - If behavior depends on project instructions, confirm Codex is launched from the intended directory so the nearest `AGENTS.md` wins.
+
+## DESIGN.md workflow
+
+- Keep repository-level `DESIGN.md` as the source of truth for look-and-feel constraints used by AI agents.
+- For front-end tasks, read `DESIGN.md` before implementation and follow its token, component, state, and responsive rules.
+- Use `/Users/yangshu/Codex/docs/design-reference-shortlist.md` only as inspiration calibration, not as permission to clone brand visuals.
+- Before finalizing UI work, run narrow code checks and at least one browser visual verification pass.
