@@ -30,6 +30,7 @@
 - Prefer the team skills `repo-codex-bootstrap` and `worktree-safety` when rolling out Codex files across repositories in this workspace.
 - Use the team skill `repo-postcheck-summary` after bootstrap-style repo changes to keep verification narrow and summaries consistent.
 - Use the team skill `webpage-capture-markdown` when a webpage should be preserved as a local markdown artifact instead of only summarized in chat.
+- Use the team skill `agent-handoff-governor` before pausing or switching between Codex/Cursor so `docs/agent-handoff.md` is refreshed with branch, changed files, and verification evidence.
 - Use `systematic-debugging` before proposing fixes for bugs, failures, or unexpected behavior.
 - Use `requesting-code-review` before merge or after major implementation work.
 - Activate vendored `playwright-best-practices` only when writing or stabilizing Playwright tests beyond basic browser automation.
