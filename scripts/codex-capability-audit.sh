@@ -125,12 +125,27 @@ if disabled_root.exists():
         skills = [p.name for p in sorted(archive.iterdir(), key=lambda p: p.name.lower()) if p.is_dir()]
         disabled_archives.append({'archive': archive.name, 'skills': skills})
 
-vendored = {}
+locked_skills = {}
+locked_skills_by_layer = defaultdict(dict)
 if skills_lock.exists():
     try:
-        vendored = json.loads(skills_lock.read_text(encoding='utf-8')).get('skills', {})
+        locked_skills = json.loads(skills_lock.read_text(encoding='utf-8')).get('skills', {})
     except Exception:
-        vendored = {}
+        locked_skills = {}
+
+for name, meta in sorted(locked_skills.items()):
+    if not isinstance(meta, dict):
+        locked_skills_by_layer['unknown'][name] = meta
+        continue
+    layer = meta.get('installLayer') or ('workspace-vendored-on-demand' if meta.get('sourceType') in {'github', 'github-vendored-subset'} else 'unknown')
+    locked_skills_by_layer[str(layer)][name] = meta
+
+vendored = {
+    name: meta
+    for name, meta in locked_skills.items()
+    if isinstance(meta, dict)
+    and (meta.get('installLayer') == 'workspace-vendored-on-demand' or meta.get('defaultEnabled') is False)
+}
 
 normalized_plugins = defaultdict(list)
 for name in plugins:
@@ -162,6 +177,8 @@ report = {
     'workspace_skills': workspace_skills,
     'project_local_skills': project_local,
     'disabled_archives': disabled_archives,
+    'locked_skills': locked_skills,
+    'locked_skills_by_layer': dict(locked_skills_by_layer),
     'vendored_skills': vendored,
     'suggestions': suggestions,
 }
@@ -227,6 +244,20 @@ print('\nDisabled archives:')
 if disabled_archives:
     for archive in disabled_archives:
         print(f"- {archive['archive']}: {', '.join(archive['skills']) if archive['skills'] else '(empty)'}")
+else:
+    print('- (none)')
+
+print('\nLocked skills by layer:')
+if locked_skills_by_layer:
+    for layer, items in sorted(locked_skills_by_layer.items()):
+        print(f'- {layer}:')
+        for name, meta in sorted(items.items()):
+            if isinstance(meta, dict):
+                enabled = meta.get('defaultEnabled')
+                suffix = '' if enabled is None else f" defaultEnabled={enabled}"
+                print(f"  - {name}: {meta.get('source')}{suffix}")
+            else:
+                print(f"  - {name}")
 else:
     print('- (none)')
 

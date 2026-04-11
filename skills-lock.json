@@ -4,17 +4,140 @@
     "playwright-best-practices": {
       "source": "currents-dev/playwright-best-practices-skill",
       "sourceType": "github",
-      "computedHash": "320eaf861e3a0a923bfaad0726cb311a3fe30093378f8d26c89b9c5ae5c42b35"
+      "computedHash": "063f385610f82ee7f8079442164db6c1549789a48cb3f5332d72faa1d5c245a9",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/playwright-best-practices",
+      "defaultEnabled": false
     },
     "requesting-code-review": {
       "source": "obra/superpowers",
       "sourceType": "github",
-      "computedHash": "246e65cd72a7e360987d94e6c61564ce6d71c6361d1784d529d70e4cbbe8522d"
+      "computedHash": "db1217c37f1e35cae48ee70c74148a531f95f371111190806b56c99945e51362",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/.agents/skills/requesting-code-review",
+      "defaultEnabled": true
     },
     "systematic-debugging": {
       "source": "obra/superpowers",
       "sourceType": "github",
-      "computedHash": "72e9ab72627e4fd8ed26a582e82309a98ecdc4f6e1c99418430ac05682c9e91d"
+      "computedHash": "9089108a29ef23b6578cc823e7edcc0551a3a9780fb338faaea3a8bff962e6de",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/.agents/skills/systematic-debugging",
+      "defaultEnabled": true
+    },
+    "skilltrust-codex-task-analyzer": {
+      "source": "shinpr/codex-workflows/.agents/skills/task-analyzer",
+      "sourceType": "skilltrust-distilled",
+      "installLayer": "personal-global",
+      "installedPath": "/Users/yangshu/.agents/skills/skilltrust-codex-task-analyzer",
+      "defaultEnabled": true,
+      "computedHash": "e45eacb66e6310297c72575b8a1f62c779a3d685df2d7098b549ead797cca8bc"
+    },
+    "skilltrust-stitch-ui-prompt-architect": {
+      "source": "gabelul/stitch-kit/skills/stitch-ui-prompt-architect",
+      "sourceType": "skilltrust-distilled",
+      "installLayer": "personal-global",
+      "installedPath": "/Users/yangshu/.agents/skills/skilltrust-stitch-ui-prompt-architect",
+      "defaultEnabled": true,
+      "computedHash": "4a3269186bc380fabfb5b13a888b5f9b18e432be2ffc07cb11104712cbb70aea"
+    },
+    "skilltrust-js-codebase-health": {
+      "source": "fallow-rs/fallow-skills/fallow",
+      "sourceType": "skilltrust-distilled",
+      "installLayer": "personal-global",
+      "installedPath": "/Users/yangshu/.agents/skills/skilltrust-js-codebase-health",
+      "defaultEnabled": true,
+      "computedHash": "6f977e9076dd3286f2e750bed15fcd61840f52d3130f95d437773d7d59e0121c"
+    },
+    "skilltrust-curated-codex-workflows-task-analyzer": {
+      "source": "shinpr/codex-workflows",
+      "sourceType": "github-vendored-subset",
+      "sourcePath": ".agents/skills/task-analyzer",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/codex-workflows/task-analyzer",
+      "defaultEnabled": false,
+      "computedHash": "e3a074ca99bf75f654f9803506054cc9c9744623e5778115ef88dc0bd1979795"
+    },
+    "skilltrust-curated-codex-workflows-documentation-criteria": {
+      "source": "shinpr/codex-workflows",
+      "sourceType": "github-vendored-subset",
+      "sourcePath": ".agents/skills/documentation-criteria",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/codex-workflows/documentation-criteria",
+      "defaultEnabled": false,
+      "computedHash": "7b08cf424e61d13989a505ff4fd1ed87cc5235670794132a552dff657f9b3d86"
+    },
+    "skilltrust-curated-codex-workflows-testing": {
+      "source": "shinpr/codex-workflows",
+      "sourceType": "github-vendored-subset",
+      "sourcePath": ".agents/skills/testing",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/codex-workflows/testing",
+      "defaultEnabled": false,
+      "computedHash": "3c91cda75beace34f3b4e9db391a129c20c3f654073d44f7487ce900657ad239"
+    },
+    "skilltrust-curated-codex-workflows-recipe-front-review": {
+      "source": "shinpr/codex-workflows",
+      "sourceType": "github-vendored-subset",
+      "sourcePath": ".agents/skills/recipe-front-review",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/codex-workflows/recipe-front-review",
+      "defaultEnabled": false,
+      "computedHash": "b4830afbe4cd8b54a005a5001ec04831edf6939c6e1972233362e9955e169cba"
+    },
+    "skilltrust-curated-stitch-kit-stitch-ui-prompt-architect": {
+      "source": "gabelul/stitch-kit",
+      "sourceType": "github-vendored-subset",
+      "sourcePath": "skills/stitch-ui-prompt-architect",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/stitch-ui-prompt-architect",
+      "defaultEnabled": false,
+      "computedHash": "9880bbbfbe777d33b28791f270e92b0ef2bc82c3fd1e0ac9ce86becfd8620b09"
+    },
+    "skilltrust-curated-stitch-kit-stitch-design-md": {
+      "source": "gabelul/stitch-kit",
+      "sourceType": "github-vendored-subset",
+      "sourcePath": "skills/stitch-design-md",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/stitch-design-md",
+      "defaultEnabled": false,
+      "computedHash": "a5b2c59bf0052b92655b3887778cbabc870a74c36c0a48c84081d5ec9f5072af"
+    },
+    "skilltrust-curated-stitch-kit-stitch-design-system": {
+      "source": "gabelul/stitch-kit",
+      "sourceType": "github-vendored-subset",
+      "sourcePath": "skills/stitch-design-system",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/stitch-design-system",
+      "defaultEnabled": false,
+      "computedHash": "67d1b7c4587fcc7dbd08e04c3a100c6e5de07497a8be848d164e7c62b073a8b6"
+    },
+    "skilltrust-curated-stitch-kit-stitch-react-components": {
+      "source": "gabelul/stitch-kit",
+      "sourceType": "github-vendored-subset",
+      "sourcePath": "skills/stitch-react-components",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/stitch-react-components",
+      "defaultEnabled": false,
+      "computedHash": "0db15bdeb619e6efb7642e990b937b8f836cf44c219ebb8f155107c1b187ddf5"
+    },
+    "skilltrust-curated-stitch-kit-stitch-nextjs-components": {
+      "source": "gabelul/stitch-kit",
+      "sourceType": "github-vendored-subset",
+      "sourcePath": "skills/stitch-nextjs-components",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/stitch-nextjs-components",
+      "defaultEnabled": false,
+      "computedHash": "b76932d329b0ae55790c6412b310d78a7fa9cc7ed552e0fde58f82e28a00edc8"
+    },
+    "skilltrust-curated-terrashark": {
+      "source": "LukasNiessen/terrashark",
+      "sourceType": "github-vendored-subset",
+      "sourcePath": "SKILL.md + references/",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/terrashark",
+      "defaultEnabled": false,
+      "computedHash": "076566e466fba64d115975619f2da91b9bae8b903bb3ed80df9fc25d8a09ee80"
     }
   }
 }

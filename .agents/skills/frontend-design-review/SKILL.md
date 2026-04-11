@@ -1,6 +1,6 @@
 ---
 name: frontend-design-review
-description: Review or implement front-end UI work with a design-first workflow. Use when the task involves page or component design quality, translating Figma or screenshot references into code, refining spacing or typography or responsive behavior, validating UI states, or checking visual polish before merge.
+description: Use when the task involves front-end page or component design quality, Figma or screenshot translation, spacing or typography refinement, responsive behavior, UI state validation, or visual polish before merge.
 ---
 
 # Frontend Design Review
@@ -49,23 +49,29 @@ If a design source is missing, say so explicitly and continue with the strongest
 
 ## Verification loop
 
-Do not stop at “the code compiles.” Run a visual loop when possible:
+Do not stop at “the code compiles.” Run a real browser or visual loop when possible:
 
 1. Launch the narrowest relevant preview or dev server.
-2. Inspect the page in a browser using the available browser automation skill.
-3. Check at least these widths when the UI is responsive:
-   - 375
-   - 768
-   - 1024
-   - 1440
-4. Look for:
+2. Inspect the page in a browser using the available browser automation skill, Playwright, or agent-browser.
+3. Explore the target UI like a user:
+   - identify 3-5 core flows or visible states for the changed page
+   - interact with primary buttons, inputs, tabs, menus, dialogs, and navigation
+   - record relevant locators or user-visible anchors when useful
+4. Capture evidence:
+   - screenshot or visual observation for the changed page
+   - browser console errors and obvious network failures
+   - responsive checks for 375, 768, 1024, and 1440 widths when the UI is responsive
+5. Check design quality:
    - overflow or clipped content
    - spacing inconsistency
    - typography hierarchy issues
    - broken alignment
-   - console errors
-   - missing interactive states
-5. If visual verification is not possible, state that gap explicitly.
+   - awkward empty/loading/error states
+   - missing hover, focus-visible, active, or disabled states
+6. Re-verify after fixes. Do not claim the visual issue is fixed until the same page or flow is checked again.
+7. If visual verification is not possible, state the exact gap and what would be needed to close it.
+
+For work sourced from SkillTrust candidates, treat `web-design-reviewer`, `webapp-testing`, and `playwright-explore-website` as inspiration only; use this workspace's local browser tooling and repo design system instead of installing duplicate global skills.
 
 ## Preferred local workflow
 
