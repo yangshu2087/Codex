@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "generatedAt": "2026-04-11",
+  "source": "SkillTrust local DB curation",
+  "defaultEnabled": false,
+  "policy": "L3 on-demand only; do not promote into default routing without a separate audit.",
+  "entries": [
+    {
+      "name": "codex-workflows/documentation-criteria",
+      "source": "shinpr/codex-workflows",
+      "sourcePath": ".agents/skills/documentation-criteria",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/codex-workflows/documentation-criteria",
+      "defaultEnabled": false,
+      "layer": "L3-vendored-on-demand",
+      "fileCount": 8
+    },
+    {
+      "name": "codex-workflows/recipe-front-review",
+      "source": "shinpr/codex-workflows",
+      "sourcePath": ".agents/skills/recipe-front-review",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/codex-workflows/recipe-front-review",
+      "defaultEnabled": false,
+      "layer": "L3-vendored-on-demand",
+      "fileCount": 2
+    },
+    {
+      "name": "codex-workflows/task-analyzer",
+      "source": "shinpr/codex-workflows",
+      "sourcePath": ".agents/skills/task-analyzer",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/codex-workflows/task-analyzer",
+      "defaultEnabled": false,
+      "layer": "L3-vendored-on-demand",
+      "fileCount": 3
+    },
+    {
+      "name": "codex-workflows/testing",
+      "source": "shinpr/codex-workflows",
+      "sourcePath": ".agents/skills/testing",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/codex-workflows/testing",
+      "defaultEnabled": false,
+      "layer": "L3-vendored-on-demand",
+      "fileCount": 3
+    },
+    {
+      "name": "stitch-kit/stitch-design-md",
+      "source": "gabelul/stitch-kit",
+      "sourcePath": "skills/stitch-design-md",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/stitch-design-md",
+      "defaultEnabled": false,
+      "layer": "L3-vendored-on-demand",
+      "fileCount": 5
+    },
+    {
+      "name": "stitch-kit/stitch-design-system",
+      "source": "gabelul/stitch-kit",
+      "sourcePath": "skills/stitch-design-system",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/stitch-design-system",
+      "defaultEnabled": false,
+      "layer": "L3-vendored-on-demand",
+      "fileCount": 3
+    },
+    {
+      "name": "stitch-kit/stitch-nextjs-components",
+      "source": "gabelul/stitch-kit",
+      "sourcePath": "skills/stitch-nextjs-components",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/stitch-nextjs-components",
+      "defaultEnabled": false,
+      "layer": "L3-vendored-on-demand",
+      "fileCount": 5
+    },
+    {
+      "name": "stitch-kit/stitch-react-components",
+      "source": "gabelul/stitch-kit",
+      "sourcePath": "skills/stitch-react-components",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/stitch-react-components",
+      "defaultEnabled": false,
+      "layer": "L3-vendored-on-demand",
+      "fileCount": 6
+    },
+    {
+      "name": "stitch-kit/stitch-ui-prompt-architect",
+      "source": "gabelul/stitch-kit",
+      "sourcePath": "skills/stitch-ui-prompt-architect",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/stitch-ui-prompt-architect",
+      "defaultEnabled": false,
+      "layer": "L3-vendored-on-demand",
+      "fileCount": 3
+    },
+    {
+      "name": "terrashark",
+      "source": "LukasNiessen/terrashark",
+      "sourcePath": "SKILL.md + references/",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/terrashark",
+      "defaultEnabled": false,
+      "layer": "L3-vendored-on-demand",
+      "fileCount": 22
+    }
+  ],
+  "licenseFiles": {
+    "shinpr/codex-workflows": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/codex-workflows/LICENSE",
+    "gabelul/stitch-kit": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/stitch-kit/LICENSE",
+    "LukasNiessen/terrashark": "/Users/yangshu/Codex/vendor/skills/skilltrust-curated/terrashark/LICENSE"
+  }
+}

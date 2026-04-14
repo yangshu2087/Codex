@@ -1,0 +1,7 @@
+interface:
+  display_name: "Stitch Nextjs Components"
+  short_description: "Use when the user explicitly mentions Google Stitch and asks to convert Stitch designs into Next.js App Router components."
+  default_prompt: "Use $stitch-nextjs-components only for an explicit on-demand review."
+
+policy:
+  allow_implicit_invocation: false

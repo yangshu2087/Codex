@@ -1,0 +1,7 @@
+interface:
+  display_name: "Testing"
+  short_description: "Use when explicitly reviewing or designing tests, TDD flow, coverage expectations, or TypeScript/Vitest/RTL/Playwright testing guidance..."
+  default_prompt: "Use $testing only for an explicit on-demand review."
+
+policy:
+  allow_implicit_invocation: false

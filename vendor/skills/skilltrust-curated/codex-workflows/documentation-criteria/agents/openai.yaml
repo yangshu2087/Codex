@@ -1,0 +1,7 @@
+interface:
+  display_name: "Documentation Criteria"
+  short_description: "Use when creating or reviewing PRDs, ADRs, design docs, UI specs, or work plans and a documentation template or document-type decision is..."
+  default_prompt: "Use $documentation-criteria only for an explicit on-demand review."
+
+policy:
+  allow_implicit_invocation: false

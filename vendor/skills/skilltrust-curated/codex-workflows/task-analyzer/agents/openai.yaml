@@ -1,0 +1,7 @@
+interface:
+  display_name: "Task Analyzer"
+  short_description: "Use when explicitly evaluating task complexity, required skills, risk level, or work scale using the vendored SkillTrust task-analysis..."
+  default_prompt: "Use $task-analyzer only for an explicit on-demand review."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Recipe Front Review"
+  short_description: "Use when explicitly running a frontend review recipe against React or TypeScript UI work and the operator wants the vendored SkillTrust..."
+  default_prompt: "Use $recipe-front-review only for an explicit on-demand review."
+
+policy:
+  allow_implicit_invocation: false

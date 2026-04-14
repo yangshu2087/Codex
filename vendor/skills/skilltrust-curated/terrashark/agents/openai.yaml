@@ -1,0 +1,7 @@
+interface:
+  display_name: "Terrashark"
+  short_description: "Use when explicitly reviewing, generating, refactoring, or migrating Terraform/OpenTofu IaC and checking failure modes such as identity..."
+  default_prompt: "Use $terrashark only for an explicit on-demand review."
+
+policy:
+  allow_implicit_invocation: false
