@@ -145,7 +145,7 @@
       "installLayer": "workspace-standard",
       "installedPath": "/Users/yangshu/Codex/.agents/skills/frontend-design-review",
       "defaultEnabled": true,
-      "computedHash": "9a9b33da73fb0de4e06bbada1cc012e974dcefae0c1781aa629b9b5509292b4f"
+      "computedHash": "a9f943ad829599ccb882b0099ce57af645b3732c4a474e6973adf75ea1714603"
     },
     "agent-handoff-governor": {
       "source": "local-workspace",
@@ -162,7 +162,7 @@
       "installedPath": "/Users/yangshu/Codex/.agents/skills/architecture-decision-review",
       "defaultEnabled": true,
       "implicitInvocation": false,
-      "computedHash": "284b6ff2a0fe693b0df5e4ce6aa2e7a05ee32cb78db608fa8c153fc11fe4fc06"
+      "computedHash": "ed5fcd5fb08ec53f7b5563d999e39bc7b59eba95f6993f8338658b3055d11bd3"
     },
     "backend-api-contract-review": {
       "source": "local-workspace-quality-lane",
@@ -171,7 +171,7 @@
       "installedPath": "/Users/yangshu/Codex/.agents/skills/backend-api-contract-review",
       "defaultEnabled": true,
       "implicitInvocation": false,
-      "computedHash": "a205077048ed08a091413509a1bf6ff22b0b6be1bdad3cb8c3ea6f431fd40156"
+      "computedHash": "accae1cdd7c15c827780a873f71ed5f374740d889dd720ab5a95b6504d41f1fb"
     },
     "product-ux-flow-review": {
       "source": "local-workspace-quality-lane",
@@ -180,7 +180,7 @@
       "installedPath": "/Users/yangshu/Codex/.agents/skills/product-ux-flow-review",
       "defaultEnabled": true,
       "implicitInvocation": false,
-      "computedHash": "c4818b3502278868a12fd456a32a16db57a04eddf20f855648dfc2f1a6a36cd9"
+      "computedHash": "3d94234b9cb1c564bedc7d921facb999e4c5a84f97dd6b0ad0c1c82b2dc81077"
     }
   }
 }

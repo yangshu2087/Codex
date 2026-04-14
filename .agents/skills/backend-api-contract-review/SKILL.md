@@ -12,17 +12,27 @@ Use this skill when backend correctness depends on contracts, state, permissions
 - Endpoint, service, job, or module under change
 - Request/response contract or caller expectations
 - Auth and permission model
-- Data persistence, cache, queue, or transaction behavior
-- Existing tests and logs relevant to the path
+- Data persistence, cache, queue, transaction, and migration behavior
+- Existing tests, logs, and route smoke checks relevant to the path
 
 ## Workflow
 
 1. Write the task card: Goal, Constraints, Non-goals, Done criteria, Verification commands.
-2. State the API contract: inputs, outputs, errors, status codes, side effects, and compatibility constraints.
-3. State the permission model and data consistency expectations.
-4. Identify observability needs: logs, metrics, traces, audit events, or user-visible error messages.
-5. Implement minimal contract-compatible changes; do not silently change schema, auth, or error semantics.
-6. Verify with the narrowest relevant checks: route/unit/integration tests, type checks, migration dry-run, or a focused smoke command.
+2. State the API contract: inputs, outputs, errors/status codes, side effects, and compatibility constraints.
+3. State permissions separately from validation; do not assume type safety proves authorization.
+4. State data consistency expectations: transaction boundary, idempotency, concurrency, cache invalidation, and migration/rollback notes when relevant.
+5. Identify observability needs: logs, metrics, traces, audit events, user-visible error messages, or explicit none.
+6. Implement minimal contract-compatible changes; do not silently change schema, auth, or error semantics.
+7. Verify with the narrowest relevant checks: route/unit/integration tests, type checks, migration dry-run, focused smoke, or a targeted regression command.
+
+## Evidence requirements
+
+- API contract / 接口契约
+- Error semantics / 错误语义
+- Auth and permissions / 权限
+- Data consistency / 数据一致性
+- Observability impact
+- Targeted regression checks / 回归测试
 
 ## Output standard
 
@@ -30,6 +40,7 @@ Use this skill when backend correctness depends on contracts, state, permissions
 - Data flow and side effects
 - Auth/permission notes
 - Error semantics
+- Data consistency expectations
 - Observability notes
 - Verification evidence
 - Remaining contract risks
@@ -39,3 +50,4 @@ Use this skill when backend correctness depends on contracts, state, permissions
 - Returning a new shape without updating callers or tests.
 - Changing auth behavior without calling it out.
 - Treating a passing build as proof of API behavior.
+- Skipping error and empty-result semantics.

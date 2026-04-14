@@ -73,3 +73,9 @@ This addendum records the second-pass quality plan after searching OpenAI offici
 - Keep their implicit invocation disabled through `agents/openai.yaml`; trigger them explicitly or through AGENTS guidance for high-signal tasks.
 - Add user prompt templates for backend/API, UX flow, and code quality.
 - Extend Stop-hook quality checks so architecture/backend/frontend/UX completion claims include lane-specific evidence rather than only a generic “done”.
+
+### Multi-channel capability layer implementation
+
+- Keep the selected model/plugin baseline unchanged and enhance capability through prompts, workspace skills, docs, and hybrid Stop-hook evidence gates.
+- Treat architecture, backend/API, front-end/UI, UX/product-flow, design humanization, code review, handoff, and regression smoke as separate evidence channels.
+- Keep third-party skill candidates reviewed and vendored-on-demand only; do not promote broad review, browser, or branch-spec skills into global implicit routing without a focused review and smoke.

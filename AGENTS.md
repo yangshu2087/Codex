@@ -44,6 +44,18 @@
 - For repositories in this workspace, prefer the GitHub flow: create a short-lived branch, run `requesting-code-review`, open a pull request, and merge only after the required review gate is satisfied or intentionally bypassed as the repository admin.
 - Treat `CODEOWNERS` as the routing layer for review responsibility. When a repository needs owner-based review, update `CODEOWNERS` rather than relying on chat memory.
 
+## Multi-channel development quality layer
+
+- Treat architecture, backend/API, front-end/UI, UX/product-flow, design language, code review, and handoff as separate quality channels that must each provide evidence when they are in scope.
+- Use the hybrid-gate model:
+  - prompts and skills guide planning and execution;
+  - Stop hooks block completion claims that omit lane evidence, Done criteria, Verification, or the required final sections.
+- For architecture work, require option comparison, tradeoffs, rollout/migration path, rollback path, observability, and risk notes before implementation.
+- For backend/API work, require API contract, error semantics, permissions, data consistency expectations, observability impact, and targeted regression checks before implementation.
+- For front-end/UI work, read the nearest `DESIGN.md`, translate design references into repo-native tokens/components, cover default/hover/focus-visible/active/loading/empty/error/disabled/success when relevant, and verify with a browser/visual pass before claiming completion.
+- For UX/product-flow work, start from the user goal and primary journey, call out friction/failure paths, state coverage, copy/accessibility expectations, and provide browser/screenshot/accessibility evidence or an explicit blocker.
+- For third-party skill candidates, use the watchlist and vendored-on-demand flow. Do not globally install broad skills or activate a vendored skill without reviewing `SKILL.md`, scripts, network/write behavior, and `skills-lock.json`.
+
 ## Multi-tool workflow
 
 - GitHub is the system of record for repository history, protected branches, pull requests, and review state.
