@@ -1,0 +1,5 @@
+interface:
+  display_name: "Product UX Flow"
+  short_description: "Review UX flows, states, and evidence."
+policy:
+  allow_implicit_invocation: false

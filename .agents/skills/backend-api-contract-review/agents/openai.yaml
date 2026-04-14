@@ -1,0 +1,5 @@
+interface:
+  display_name: "Backend API Review"
+  short_description: "Check backend/API contracts and verification."
+policy:
+  allow_implicit_invocation: false

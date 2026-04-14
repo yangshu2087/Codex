@@ -32,10 +32,15 @@
 - Use the team skill `webpage-capture-markdown` when a webpage should be preserved as a local markdown artifact instead of only summarized in chat.
 - Use `systematic-debugging` before proposing fixes for bugs, failures, or unexpected behavior.
 - Use `requesting-code-review` before merge or after major implementation work.
+- When running local `/review` or preparing PR review, use `/Users/yangshu/Codex/docs/code_review.md` as the review checklist and cite any deviations explicitly.
 - Activate vendored `playwright-best-practices` only when writing or stabilizing Playwright tests beyond basic browser automation.
 - Keep `skills-lock.json` in sync with installed or vendored marketplace skills.
 - Prefer preparing a safe upgrade plan and verification steps before changing binaries under `/Applications`.
 - Keep changes reproducible: if a version check or migration step is useful twice, put it into `scripts/`.
+- Keep `/Users/yangshu/Codex/docs/codex-latest-practices-2026-04-14.md` as the local record of the current stable Codex model/config/plugin/skill decisions.
+- Keep `/Users/yangshu/Codex/docs/codex-github-skill-watchlist-2026-04-14.md` as the on-demand third-party skill candidate list; do not global-install those candidates without a focused review.
+- Use explicit workspace skills for high-stakes lanes when needed: `architecture-decision-review`, `backend-api-contract-review`, and `product-ux-flow-review`.
+- Use `/Users/yangshu/Codex/docs/codex-quality-lanes.md` to route requirements, architecture, front-end, backend/API, code review, and research tasks through the correct quality lane.
 - For repositories in this workspace, prefer the GitHub flow: create a short-lived branch, run `requesting-code-review`, open a pull request, and merge only after the required review gate is satisfied or intentionally bypassed as the repository admin.
 - Treat `CODEOWNERS` as the routing layer for review responsibility. When a repository needs owner-based review, update `CODEOWNERS` rather than relying on chat memory.
 
@@ -74,6 +79,16 @@
   - `git diff --stat`
 - If Codex and Cursor need to work in parallel, keep them on separate branches or separate worktrees. Do not let both tools edit the same dirty working tree at once.
 - Use GitHub PRs and checked-in `.github/` files as the durable record of what changed, why it changed, and what review gate applies.
+
+
+## Final response contract
+
+- When finishing workspace maintenance or repository changes, final replies must include:
+  - `已完成`: the concrete files, configs, scripts, commits, pushes, or settings changed.
+  - `完成证据`: exact verification commands and observed outputs, or browser/screenshot evidence when UI is involved.
+  - `还缺什么`: remaining risks, skipped checks, uncommitted files, or `无`.
+  - `后续建议`: the next actionable step, or `无，等待你的下一步指令`.
+- If a final reply says a task is done but lacks these sections, treat it as incomplete and revise the reply before stopping.
 
 ## Verification
 
