@@ -5,6 +5,22 @@ Source repo: [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-
 This shortlist is the workspace-approved reference set for current Codex UI work.
 Use these references as design-language input, not as a brand-cloning kit.
 
+## Safe local usage
+
+The `DESIGN.md` bodies are now served through the `getdesign` CLI / `getdesign.md` pages rather than stable GitHub `design-md/<brand>/DESIGN.md` blob paths.
+
+Use a pinned CLI version and write references to a non-active folder first:
+
+```bash
+cd /path/to/target-repo
+mkdir -p docs/design-references
+GETDESIGN_DISABLE_TELEMETRY=1 npx getdesign@0.6.2 add vercel --out ./docs/design-references/vercel.DESIGN.md
+```
+
+Replace `vercel` with another template id such as `linear.app`, `stripe`, `notion`, or `mintlify`.
+
+Do not run `getdesign add <brand> --force` from `/Users/yangshu/Codex` unless the intent is to overwrite the active workspace `DESIGN.md`. Review the downloaded reference and merge only the relevant guidance into the target repo's own `DESIGN.md`.
+
 ## Selection criteria
 
 The goal was to pick references that match our current mix of:
@@ -28,7 +44,8 @@ We optimized for references that are:
 Files:
 
 - [repo folder](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/vercel)
-- [DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/vercel/DESIGN.md)
+- [current DESIGN.md page](https://getdesign.md/vercel/design-md)
+- CLI template id: `vercel`
 
 Why it made the cut:
 
@@ -54,7 +71,8 @@ Do not copy literally:
 Files:
 
 - [repo folder](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/linear.app)
-- [DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/linear.app/DESIGN.md)
+- [current DESIGN.md page](https://getdesign.md/linear.app/design-md)
+- CLI template id: `linear.app`
 
 Why it made the cut:
 
@@ -79,7 +97,8 @@ Do not copy literally:
 Files:
 
 - [repo folder](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/stripe)
-- [DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/stripe/DESIGN.md)
+- [current DESIGN.md page](https://getdesign.md/stripe/design-md)
+- CLI template id: `stripe`
 
 Why it made the cut:
 
@@ -104,7 +123,8 @@ Do not copy literally:
 Files:
 
 - [repo folder](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/notion)
-- [DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/notion/DESIGN.md)
+- [current DESIGN.md page](https://getdesign.md/notion/design-md)
+- CLI template id: `notion`
 
 Why it made the cut:
 
@@ -129,7 +149,8 @@ Do not copy literally:
 Files:
 
 - [repo folder](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/mintlify)
-- [DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/mintlify/DESIGN.md)
+- [current DESIGN.md page](https://getdesign.md/mintlify/design-md)
+- CLI template id: `mintlify`
 
 Why it made the cut:
 
