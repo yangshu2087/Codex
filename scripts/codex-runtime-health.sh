@@ -108,8 +108,7 @@ ps -Ao pid,pcpu,pmem,etime,command -r \
       {
         line=$0
         if (length(line) > 220) line=substr(line,1,220) "..."
-        print line
-        if (NR >= 16) exit
+        if (NR <= 16) print line
       }
     '
 
@@ -122,8 +121,7 @@ ps -Ao pid,pcpu,pmem,etime,command \
       {
         line=$0
         if (length(line) > 260) line=substr(line,1,260) "..."
-        print line
-        if (NR >= 40) exit
+        if (NR <= 40) print line
       }
     ' || true
 

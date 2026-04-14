@@ -21,6 +21,18 @@ Replace `vercel` with another template id such as `linear.app`, `stripe`, `notio
 
 Do not run `getdesign add <brand> --force` from `/Users/yangshu/Codex` unless the intent is to overwrite the active workspace `DESIGN.md`. Review the downloaded reference and merge only the relevant guidance into the target repo's own `DESIGN.md`.
 
+## Translation rules for humane UI
+
+Use these references to make product surfaces clearer and more humane, not more ornamental:
+
+- Translate mood into local design tokens: spacing, type scale, surfaces, focus rings, and component states.
+- Translate hierarchy into user decisions: the next action, recovery path, and success state should be obvious.
+- Translate density into task context: marketing pages can breathe; dashboards should prioritize scanning and fast operation.
+- Translate motion into affordance: entrance, hover, and reveal effects must clarify hierarchy or feedback.
+- Never copy brand signatures verbatim, including proprietary color combinations, exact typography treatments, product-specific workflow colors, or distinctive hero compositions.
+
+Every front-end task that uses this shortlist should name the 1-2 references used and state the local translation in terms of repo-native components/tokens.
+
 ## Selection criteria
 
 The goal was to pick references that match our current mix of:
@@ -189,18 +201,21 @@ These blend rules help Codex use the references without producing direct copies.
 - 60% `vercel`
 - 20% `stripe`
 - 20% `mintlify`
+- Humanization focus: short promise, one dominant CTA, proof before decoration, and first viewport that communicates the product without relying on stat strips or generic card grids.
 
 ### Authenticated app shell
 
 - 70% `linear.app`
 - 20% `vercel`
 - 10% `notion`
+- Humanization focus: navigation clarity, visible system status, fast task recovery, dense but breathable lists/tables, and one clear accent for state/action.
 
 ### Docs / knowledge surfaces
 
 - 50% `mintlify`
 - 30% `notion`
 - 20% `vercel`
+- Humanization focus: readable content width, strong search/onboarding paths, copy that explains prerequisites, and empty/error states that help users continue.
 
 ## Agent usage rules
 

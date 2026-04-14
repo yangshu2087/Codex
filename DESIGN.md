@@ -177,6 +177,8 @@ Avoid:
 - verify hover, focus, loading, empty, error, and disabled states
 - match the repo's real design system before introducing new primitives
 - choose a small number of strong ideas and apply them consistently
+- make the next user action obvious through copy, spacing, contrast, and visible affordances
+- give error, empty, loading, and success states enough guidance for a user to recover or continue
 
 ### Don't
 
@@ -185,6 +187,7 @@ Avoid:
 - use multiple loud accent colors on the same screen
 - overuse gradients, glow, blur, or oversized animations
 - hide important structure behind stylistic flourishes
+- use visual polish to compensate for unclear information architecture or weak product copy
 
 ## 8. Responsive Behavior
 
@@ -217,3 +220,18 @@ Prompting rule:
 
 - treat external references as **design-language input**
 - never treat them as **brand-cloning instructions**
+
+## 10. Humane UX Defaults
+
+For product flows, design choices should reduce cognitive load before adding visual novelty.
+
+Default UX checks:
+
+- **First screen**: the user can tell where they are, what changed, and what to do next.
+- **Primary action**: one dominant action per surface unless the workflow genuinely requires comparison.
+- **State coverage**: default, hover, focus-visible, active, loading, empty, error, disabled, and success states are considered when relevant.
+- **Recovery**: empty/error states explain what happened and how to proceed.
+- **Accessibility**: semantic structure, keyboard reachability, visible focus, contrast, and tap target size stay in scope.
+- **Responsive behavior**: preserve hierarchy and action clarity across `375`, `768`, `1024`, and `1440` widths.
+
+Visual polish is acceptable only when it supports orientation, hierarchy, feedback, trust, or conversion.

@@ -11,13 +11,12 @@ Use this skill when Codex should behave like a design-aware front-end implemente
 
 Read the highest-signal design inputs available before changing code:
 
-1. Repository `DESIGN.md`
+1. Nearest repository `DESIGN.md`
 2. Workspace or repo design shortlist docs when present
-3. Figma links or node IDs
+3. Figma links, node IDs, screenshots, or reference images
 4. Repository design files under `design/`
-5. Screenshots or reference images
-6. Existing component library and tokens
-7. Product spec or acceptance notes in repo docs, Notion, or Google Drive
+5. Existing component library and tokens
+6. Product spec, UX flow, or acceptance notes in repo docs, Notion, or Google Drive
 
 If a design source is missing, say so explicitly and continue with the strongest remaining source instead of pretending the design is fully specified.
 
@@ -31,20 +30,23 @@ If a design source is missing, say so explicitly and continue with the strongest
    - components
    - states
    - responsive behavior
-3. Cover non-happy paths by default:
-   - loading
-   - empty
-   - error
+3. Cover non-happy paths by default when relevant:
+   - default
    - hover
    - focus-visible
    - active
+   - loading
+   - empty
+   - error
    - disabled
+   - success
 4. Keep accessibility in scope:
    - semantic HTML first
    - keyboard reachability
    - visible focus states
    - contrast awareness
-5. When implementing from Figma, preserve intent rather than copying every raw pixel token if that would fight the local design system.
+   - sufficient tap targets
+5. Preserve intent rather than copying every raw pixel token if that would fight the local design system.
 6. If using an external inspiration reference, state it explicitly and translate it into local rules rather than copying the original brand.
 
 ## Visual thesis gate
@@ -57,6 +59,14 @@ For visually led pages, landing pages, prototypes, demos, or any UI where design
 
 Use those notes as a design contract. If the code starts drifting into generic components, return to the thesis before adding more UI.
 
+## Humane product defaults
+
+- The first screen should make the product, user location, and next action obvious.
+- Empty/error/loading/success states should help users recover or continue.
+- Copy should orient before it persuades; CTAs should describe the action.
+- Decorative motion, gradients, glow, or chrome must clarify hierarchy, feedback, trust, or conversion.
+- Dashboards/admin/ops UI should prioritize status, navigation, task completion, and recovery over campaign-style hero copy.
+
 ## Premium composition defaults
 
 - Start with composition, not component count.
@@ -66,7 +76,6 @@ Use those notes as a design contract. If the code starts drifting into generic c
 - Default to cardless layouts. Use sections, columns, dividers, media blocks, and clear workspace regions before adding card grids.
 - Treat the first viewport of a branded page as a poster: unmistakable product or brand, one strong visual anchor, short copy, and one clear action.
 - For app surfaces, default to calm product utility: navigation, primary workspace, secondary context or inspector, and one clear accent for state or action.
-- For dashboards/admin/ops UI, avoid campaign-style hero copy; headings should orient, expose status, or help the user decide.
 
 ## Landing page and first-viewport checks
 
@@ -108,7 +117,7 @@ Do not stop at “the code compiles.” Run a real browser or visual loop when p
    - spacing inconsistency
    - typography hierarchy issues
    - broken alignment
-   - awkward empty/loading/error states
+   - awkward empty/loading/error/success states
    - missing hover, focus-visible, active, or disabled states
 6. Re-verify after fixes. Do not claim the visual issue is fixed until the same page or flow is checked again.
 7. If visual verification is not possible, state the exact gap and what would be needed to close it.
@@ -137,6 +146,7 @@ When summarizing work, include:
 5. what states and breakpoints were checked
 6. what real browser, screenshot, Playwright, or agent-browser verification was performed
 7. what remains visually unverified
+
 ## Completion contract
 
 Before claiming front-end or UX work is complete, include browser or visual verification evidence and the standard final report headings: `已完成`, `完成证据`, `还缺什么`, and `后续建议`. If no real page was checked, state the blocker instead of implying visual quality.
