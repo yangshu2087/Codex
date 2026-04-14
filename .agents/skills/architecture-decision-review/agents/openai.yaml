@@ -1,0 +1,5 @@
+interface:
+  display_name: "Architecture Review"
+  short_description: "Plan architecture decisions with tradeoffs and rollback."
+policy:
+  allow_implicit_invocation: false
