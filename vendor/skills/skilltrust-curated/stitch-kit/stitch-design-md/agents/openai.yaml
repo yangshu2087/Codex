@@ -1,0 +1,7 @@
+interface:
+  display_name: "Stitch Design Md"
+  short_description: "Use when the user explicitly mentions Google Stitch and wants a Stitch-derived DESIGN.md or design-language reference synthesized from..."
+  default_prompt: "Use $stitch-design-md only for an explicit on-demand review."
+
+policy:
+  allow_implicit_invocation: false

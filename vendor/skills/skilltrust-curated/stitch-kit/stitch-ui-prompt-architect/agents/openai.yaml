@@ -1,0 +1,7 @@
+interface:
+  display_name: "Stitch Ui Prompt Architect"
+  short_description: "Use when the user explicitly mentions Google Stitch and wants a structured Stitch-ready UI prompt or prompt refinement from rough..."
+  default_prompt: "Use $stitch-ui-prompt-architect only for an explicit on-demand review."
+
+policy:
+  allow_implicit_invocation: false
