@@ -181,6 +181,462 @@
       "defaultEnabled": true,
       "implicitInvocation": false,
       "computedHash": "3d94234b9cb1c564bedc7d921facb999e4c5a84f97dd6b0ad0c1c82b2dc81077"
+    },
+    "reviewed-agent-reach": {
+      "source": "Panniantong/Agent-Reach",
+      "sourceType": "github-reviewed-candidate",
+      "reviewedSources": [
+        "https://github.com/Panniantong/Agent-Reach",
+        "https://raw.githubusercontent.com/Panniantong/Agent-Reach/main/README.md",
+        "https://raw.githubusercontent.com/Panniantong/Agent-Reach/main/docs/install.md"
+      ],
+      "verdict": "reference-only",
+      "risk": "high",
+      "activationGate": "Do not run agent-reach install without a separate full installer, upstream CLI, Cookie, and exec-permission review.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-cookie-by-default",
+      "computedHash": "b13d31d6a0bb84c5419ad43dc874c382867a231b54d0871a5fd7b322a632692a",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://github.com/Panniantong/Agent-Reach",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://raw.githubusercontent.com/Panniantong/Agent-Reach/main/README.md",
+          "status": "ok",
+          "bytes": 21472
+        },
+        {
+          "source": "https://raw.githubusercontent.com/Panniantong/Agent-Reach/main/docs/install.md",
+          "status": "ok",
+          "bytes": 16952
+        }
+      ]
+    },
+    "reviewed-opencli-readonly-channel": {
+      "source": "jackwener/OpenCLI",
+      "sourceType": "github-reviewed-candidate",
+      "reviewedSources": [
+        "https://github.com/jackwener/opencli",
+        "https://raw.githubusercontent.com/jackwener/OpenCLI/main/README.md",
+        "https://raw.githubusercontent.com/jackwener/OpenCLI/main/package.json",
+        "file:///Users/yangshu/Codex/scripts/opencli-readonly.sh"
+      ],
+      "verdict": "keep-existing-readonly-wrapper",
+      "risk": "medium",
+      "activationGate": "Only use /Users/yangshu/Codex/scripts/opencli-readonly.sh; live browser/eval/generate/explore/synthesize remain denied by default.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-cookie-by-default",
+      "computedHash": "485d6be6b23985c8561b90f7384e4f24d5bc2f0f32f9ec71710c0c04a59b588c",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://github.com/jackwener/opencli",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://raw.githubusercontent.com/jackwener/OpenCLI/main/README.md",
+          "status": "ok",
+          "bytes": 17430
+        },
+        {
+          "source": "https://raw.githubusercontent.com/jackwener/OpenCLI/main/package.json",
+          "status": "ok",
+          "bytes": 3118
+        },
+        {
+          "source": "file:///Users/yangshu/Codex/scripts/opencli-readonly.sh",
+          "status": "ok",
+          "bytes": 5138
+        }
+      ]
+    },
+    "reviewed-bb-browser": {
+      "source": "epiral/bb-browser + clawhub.ai/yan5xu/bb-browser",
+      "sourceType": "github-and-clawhub-reviewed-candidate",
+      "reviewedSources": [
+        "https://github.com/epiral/bb-browser",
+        "https://raw.githubusercontent.com/epiral/bb-browser/main/README.md",
+        "https://raw.githubusercontent.com/epiral/bb-browser/main/package.json",
+        "https://clawhub.ai/yan5xu/bb-browser"
+      ],
+      "verdict": "reviewed-candidate-not-activated",
+      "risk": "high",
+      "activationGate": "Do not use logged-in browser state, MCP server, or site update until adapter provenance and OpenClaw assumptions are reviewed in an isolated profile.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-cookie-by-default",
+      "computedHash": "1815b95f84792a4cc54796e2521852376ee4ce551e4949a066373710c2524269",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://github.com/epiral/bb-browser",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://raw.githubusercontent.com/epiral/bb-browser/main/README.md",
+          "status": "ok",
+          "bytes": 7396
+        },
+        {
+          "source": "https://raw.githubusercontent.com/epiral/bb-browser/main/package.json",
+          "status": "ok",
+          "bytes": 1848
+        },
+        {
+          "source": "https://clawhub.ai/yan5xu/bb-browser",
+          "status": "ok",
+          "bytes": 43513
+        }
+      ]
+    },
+    "reviewed-web-access": {
+      "source": "eze-is/web-access",
+      "sourceType": "github-reviewed-candidate",
+      "reviewedSources": [
+        "https://github.com/eze-is/web-access",
+        "https://raw.githubusercontent.com/eze-is/web-access/main/SKILL.md",
+        "https://raw.githubusercontent.com/eze-is/web-access/main/scripts/cdp-proxy.mjs",
+        "https://raw.githubusercontent.com/eze-is/web-access/main/scripts/check-deps.mjs"
+      ],
+      "verdict": "strategy-reference-only",
+      "risk": "high",
+      "activationGate": "Translate routing/site-pattern ideas only; do not start CDP proxy or write site-pattern files from Codex by default.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-cookie-by-default",
+      "computedHash": "149ca138a61a9ebfb516dd1b86d4b43913d64a1f1f9e0441043251cbf36ce369",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://github.com/eze-is/web-access",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://raw.githubusercontent.com/eze-is/web-access/main/SKILL.md",
+          "status": "ok",
+          "bytes": 15751
+        },
+        {
+          "source": "https://raw.githubusercontent.com/eze-is/web-access/main/scripts/cdp-proxy.mjs",
+          "status": "ok",
+          "bytes": 21469
+        },
+        {
+          "source": "https://raw.githubusercontent.com/eze-is/web-access/main/scripts/check-deps.mjs",
+          "status": "ok",
+          "bytes": 5182
+        }
+      ]
+    },
+    "reviewed-wechat-articles-spider": {
+      "source": "klin-h/wechat_articles_spider",
+      "sourceType": "github-reviewed-candidate",
+      "reviewedSources": [
+        "https://github.com/klin-h/wechat_articles_spider",
+        "https://raw.githubusercontent.com/klin-h/wechat_articles_spider/main/README.md",
+        "https://raw.githubusercontent.com/klin-h/wechat_articles_spider/main/wechat_mp_crawler.py"
+      ],
+      "verdict": "reject-default-route",
+      "risk": "extreme",
+      "activationGate": "Requires disposable account, explicit legal/TOS review, and isolated lab; do not save WeChat token/cookie in default Codex/OpenClaw flows.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-cookie-by-default",
+      "computedHash": "753637b9e746a3cc2f30608122d07d756e98b913761c262f7d32d7aa21fdd08b",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://github.com/klin-h/wechat_articles_spider",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://raw.githubusercontent.com/klin-h/wechat_articles_spider/main/README.md",
+          "status": "ok",
+          "bytes": 5137
+        },
+        {
+          "source": "https://raw.githubusercontent.com/klin-h/wechat_articles_spider/main/wechat_mp_crawler.py",
+          "status": "ok",
+          "bytes": 59754
+        }
+      ]
+    },
+    "reviewed-jina-reader": {
+      "source": "jina-ai/reader",
+      "sourceType": "github-reviewed-candidate",
+      "reviewedSources": [
+        "https://github.com/jina-ai/reader",
+        "https://raw.githubusercontent.com/jina-ai/reader/main/README.md"
+      ],
+      "verdict": "low-risk-public-url-reference-route",
+      "risk": "low",
+      "activationGate": "Use only public URLs through r.jina.ai; do not forward cookies; preserve source URL and extraction-loss caveat.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-cookie-by-default",
+      "computedHash": "8f58c066d588c2fd7885d0151293bf0cd2a70c7256ed3c2dd29827913f92792d",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://github.com/jina-ai/reader",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://raw.githubusercontent.com/jina-ai/reader/main/README.md",
+          "status": "ok",
+          "bytes": 12421
+        }
+      ]
+    },
+    "reviewed-6551-opentwitter-opennews": {
+      "source": "infra403/opentwitter-mcp + infra403/opennews-mcp",
+      "sourceType": "clawhub-reviewed-candidate",
+      "reviewedSources": [
+        "https://clawhub.ai/infra403/opentwitter-mcp",
+        "https://clawhub.ai/infra403/opennews-mcp"
+      ],
+      "verdict": "explicit-only-api-candidate",
+      "risk": "medium",
+      "activationGate": "Requires scoped 6551 service tokens; disclose third-party provider; never fall back to Twitter/X Cookie scraping.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-cookie-by-default",
+      "computedHash": "7d5d2acb958f5acb0d42f3bfd422ed8c42ba959942375a25c49ce16695ace587",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://clawhub.ai/infra403/opentwitter-mcp",
+          "status": "ok",
+          "bytes": 43260
+        },
+        {
+          "source": "https://clawhub.ai/infra403/opennews-mcp",
+          "status": "ok",
+          "bytes": 39987
+        }
+      ]
+    },
+    "reviewed-mediacrawler": {
+      "source": "NanmiCoder/MediaCrawler",
+      "sourceType": "github-reviewed-candidate",
+      "reviewedSources": [
+        "https://github.com/NanmiCoder/MediaCrawler",
+        "https://raw.githubusercontent.com/NanmiCoder/MediaCrawler/main/README.md",
+        "https://raw.githubusercontent.com/NanmiCoder/MediaCrawler/main/LICENSE"
+      ],
+      "verdict": "reject-default-route",
+      "risk": "extreme",
+      "activationGate": "License/disclaimer limits usage to non-commercial learning/research and forbids large-scale crawling; do not route production work here.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-cookie-by-default",
+      "computedHash": "82d6f87cfede2809a837826bdf115e3ff71e2cab2373e913b95ff4081e4659ec",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://github.com/NanmiCoder/MediaCrawler",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://raw.githubusercontent.com/NanmiCoder/MediaCrawler/main/README.md",
+          "status": "ok",
+          "bytes": 13037
+        },
+        {
+          "source": "https://raw.githubusercontent.com/NanmiCoder/MediaCrawler/main/LICENSE",
+          "status": "ok",
+          "bytes": 4775
+        }
+      ]
+    },
+    "reviewed-xcrawl-openclaw-skills": {
+      "source": "xcrawl-api/xcrawl-skills",
+      "sourceType": "github-and-docs-reviewed-candidate",
+      "reviewedSources": [
+        "https://docs.xcrawl.com/zh/doc/developer-guides/openclaw/",
+        "https://github.com/xcrawl-api/xcrawl-skills",
+        "https://raw.githubusercontent.com/xcrawl-api/xcrawl-skills/main/README.md"
+      ],
+      "verdict": "explicit-only-api-candidate",
+      "risk": "medium",
+      "activationGate": "Requires approved XCRAWL_API_KEY; do not create ~/.xcrawl/config.json or clone skills in this pass.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-cookie-by-default",
+      "computedHash": "07fcac8ec223e8921e77dd418cb1a4669976a0db74035c73821b3af2345a4c73",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://docs.xcrawl.com/zh/doc/developer-guides/openclaw/",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://github.com/xcrawl-api/xcrawl-skills",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://raw.githubusercontent.com/xcrawl-api/xcrawl-skills/main/README.md",
+          "status": "ok",
+          "bytes": 3124
+        }
+      ]
+    },
+    "reviewed-obsidian-web-clipper": {
+      "source": "obsidianmd/obsidian-clipper + obsidian.md/clipper",
+      "sourceType": "github-and-official-doc-reviewed-candidate",
+      "reviewedSources": [
+        "https://obsidian.md/clipper",
+        "https://github.com/obsidianmd/obsidian-clipper",
+        "https://raw.githubusercontent.com/obsidianmd/obsidian-clipper/main/README.md"
+      ],
+      "verdict": "human-operated-capture-route",
+      "risk": "low",
+      "activationGate": "Keep as manual browser-extension guidance; Codex should not silently drive the extension or mutate vault notes from this intake.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-cookie-by-default",
+      "computedHash": "9964241ca93fe9d2bbfa6f150b075b5234858dc652fa7fa0962261d72bb5c3e4",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://obsidian.md/clipper",
+          "status": "ok",
+          "bytes": 107540
+        },
+        {
+          "source": "https://github.com/obsidianmd/obsidian-clipper",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://raw.githubusercontent.com/obsidianmd/obsidian-clipper/main/README.md",
+          "status": "ok",
+          "bytes": 4371
+        }
+      ]
+    },
+    "reviewed-cli-anything": {
+      "source": "HKUDS/CLI-Anything",
+      "sourceType": "github-reviewed-candidate",
+      "reviewedSources": [
+        "https://github.com/HKUDS/CLI-Anything",
+        "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/README.md",
+        "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/codex-skill/SKILL.md",
+        "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/openclaw-skill/SKILL.md",
+        "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/cli-hub-meta-skill/SKILL.md",
+        "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/cli-anything-plugin/HARNESS.md",
+        "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/cli-hub/README.md",
+        "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/cli-hub/cli_hub/installer.py",
+        "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/cli-hub/cli_hub/analytics.py",
+        "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/SECURITY.md"
+      ],
+      "verdict": "reviewed-harness-methodology-candidate-not-activated",
+      "risk": "medium-high",
+      "activationGate": "Use as Codex/Hermes harness methodology only; do not run CLI-Hub installs, upstream skill installers, publish workflows, or generated real-app control without isolated venv/worktree review, explicit approval, and CLI_HUB_NO_ANALYTICS=1 if runtime install is later approved.",
+      "installLayer": "workspace-reviewed-candidate",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewedAt": "2026-04-14",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md",
+      "credentialPolicy": "no-credential-no-analytics-no-install-by-default",
+      "computedHash": "b5a7378331366f1a4285699c27d2d02de1943ead99bf07834255b56334988f42",
+      "notes": "Repository has Codex/OpenClaw skill docs and CLI-Hub package-manager flow; keep explicit-only because CLI-Hub performs pip installs, writes ~/.cli-hub, can send anonymous analytics unless opted out, and generated harnesses may control real applications.",
+      "reviewedSourceFetch": [
+        {
+          "source": "https://github.com/HKUDS/CLI-Anything",
+          "status": "metadata-only",
+          "bytes": 0
+        },
+        {
+          "source": "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/README.md",
+          "status": "ok",
+          "bytes": 56396
+        },
+        {
+          "source": "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/codex-skill/SKILL.md",
+          "status": "ok",
+          "bytes": 3415
+        },
+        {
+          "source": "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/openclaw-skill/SKILL.md",
+          "status": "ok",
+          "bytes": 3427
+        },
+        {
+          "source": "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/cli-hub-meta-skill/SKILL.md",
+          "status": "ok",
+          "bytes": 2868
+        },
+        {
+          "source": "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/cli-anything-plugin/HARNESS.md",
+          "status": "ok",
+          "bytes": 29350
+        },
+        {
+          "source": "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/cli-hub/README.md",
+          "status": "ok",
+          "bytes": 2543
+        },
+        {
+          "source": "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/cli-hub/cli_hub/installer.py",
+          "status": "ok",
+          "bytes": 3492
+        },
+        {
+          "source": "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/cli-hub/cli_hub/analytics.py",
+          "status": "ok",
+          "bytes": 3730
+        },
+        {
+          "source": "https://raw.githubusercontent.com/HKUDS/CLI-Anything/main/SECURITY.md",
+          "status": "ok",
+          "bytes": 3214
+        }
+      ]
     }
   }
 }
