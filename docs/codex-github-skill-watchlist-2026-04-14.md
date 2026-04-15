@@ -33,6 +33,31 @@ Read-only review clone location used during intake: `/tmp/codex-third-party-skil
 
 No new third-party skill was activated by default in this pass. If one is later vendored, add `allow_implicit_invocation: false`, update `skills-lock.json`, and run `scripts/skill-audit.sh` plus `scripts/skill-smoke.sh`.
 
+## 2026-04-14 Codex / OpenClaw / Hermes external channel intake
+
+Source of record: `/Users/yangshu/Codex/docs/codex-openclaw-external-channel-intake-2026-04-14.md`. This pass used review-routing only: no install, no credential write, no crawler execution, and no OpenClaw config edit. Hermes-Agent exists at `/Users/yangshu/.local/src/Hermes-Agent`, but it is outside this workspace and dirty; this pass treats Hermes as a read-only supervision / quality-control lane and does not edit that checkout.
+
+| Candidate | Verdict | Risk | Recommended landing zone | Next gate |
+|---|---|---|---|---|
+| `Panniantong/Agent-Reach` | Reference only | High | Docs/channel-matrix inspiration | Do not run `agent-reach install`; review installer, upstream CLIs, Cookie handling, and exec requirements before any future install. |
+| `jackwener/opencli` | Keep existing read-only route | Medium | `/Users/yangshu/Codex/scripts/opencli-readonly.sh` | Keep live browser, `eval`, `explore/generate/synthesize`, and external auto-install behavior denied unless separately approved. |
+| `epiral/bb-browser` | Reviewed candidate, not activated | High | Future isolated browser sandbox only | ClawHub `bb-browser` skill scan flagged suspicious OpenClaw/adapter-provenance mismatch; do not use logged-in browser state or `site update` yet. |
+| `eze-is/web-access` | Strategy reference only | High | Routing/CDP/site-pattern design notes | Translate the three-channel routing idea; do not start its CDP proxy or write site-pattern files from Codex by default. |
+| `klin-h/wechat_articles_spider` | Reject default route | Extreme | Isolated lab only | Requires WeChat login plus token/cookie persistence and warns about account bans; needs disposable account and legal/TOS review. |
+| `jina-ai/reader` | Low-risk public URL route | Low | Public URL-to-Markdown preprocessor | Use only public URLs; do not forward Cookie headers; keep source URL and extraction-loss caveat. |
+| `infra403/opentwitter-mcp` + `infra403/opennews-mcp` | Explicit-only API candidate | Medium | OpenClaw API lane with Hermes supervision | Use only scoped 6551 service tokens; disclose third-party provider and never fall back to X/Twitter Cookie scraping. |
+| `NanmiCoder/MediaCrawler` | Reject default route | Extreme | Isolated non-commercial learning lab only | License/disclaimer limit use to learning/research and forbid large-scale/commercial crawling; do not route production work here. |
+| `xcrawl-api/xcrawl-skills` | Explicit-only API candidate | Medium | Future OpenClaw API skill set | Requires approved `XCRAWL_API_KEY`; do not create `~/.xcrawl/config.json` or clone skills in this pass. |
+| `obsidianmd/obsidian-clipper` | Human-operated capture route | Low | UX/knowledge-capture guidance | Keep as manual browser extension workflow; Codex should not silently drive the extension or mutate vault notes from this intake. |
+| `HKUDS/CLI-Anything` | Reviewed harness-methodology candidate, not activated | Medium-High | Codex/Hermes harness methodology; future OpenClaw explicit-only candidate | Use `codex-skill/SKILL.md`, `openclaw-skill/SKILL.md`, and `cli-anything-plugin/HARNESS.md` as references; do not run `cli-hub install`, global skill installers, publish workflows, or generated real-app control without isolated review and `CLI_HUB_NO_ANALYTICS=1`. |
+
+
+### CLI-Anything / CLI-Hub notes
+
+`HKUDS/CLI-Anything` is useful as a Codex/Hermes harness-generation methodology: build/refine/test/validate a `cli-anything-<software>` wrapper around a real backend, require JSON output, and verify with subprocess tests. It is not enabled by default because CLI-Hub is a pip-based installer, writes `~/.cli-hub`, has analytics unless `CLI_HUB_NO_ANALYTICS=1`, and generated harnesses may control real desktop apps or external services. The local Hermes-Agent checkout is dirty and outside this workspace, so this pass does not edit it; if later adopted, vendor only a narrow explicit-only skill subset and keep install/publish/app-control steps behind manual approval.
+
+All new entries added to `skills-lock.json` must remain `defaultEnabled:false` and `implicitInvocation:false` until a later focused review explicitly promotes them.
+
 ## Review checklist before adopting a candidate
 
 1. Read `SKILL.md` and any scripts for write actions, network calls, daemon use, secrets, and hidden dependencies.
