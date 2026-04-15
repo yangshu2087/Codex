@@ -90,3 +90,13 @@ Weekly maintenance entrypoint:
 - Weekly large-session archive plan: `/Users/yangshu/Codex/scripts/codex-maint-weekly.sh --session-archive-plan`
 - Direct session archive plan: `/Users/yangshu/Codex/scripts/codex-session-archive-plan.sh`
 - Direct full regression: `/Users/yangshu/Codex/scripts/codex-quality-regression.sh`
+## Memory / feedback / challenge / outcome add-on
+
+These checks apply across all lanes when relevant.
+
+| Add-on | Trigger | Required evidence | Tooling |
+|---|---|---|---|
+| Memory | explicit remember request, repeated feedback, cross-day recovery | scope, source, confidence, expiry/review, no-secret decision | `codex-memory-curator`, `codex-memory-audit.sh` |
+| Feedback | user says Codex misunderstood, regressed, missed intent, or stopped early | expected vs actual, root cause, durable prevention action | `codex-feedback-retrospective`, `codex-feedback-capture.sh` |
+| Challenge | unsafe/unreasonable/under-specified/high-risk request | real goal, steel-man, concrete risk, better option, execution boundary | `codex-intake-challenge`, `codex-challenge-smoke.sh` |
+| Outcome | any completion claim for complex work | user value, concrete evidence, gaps, next step | `outcome-driven-delivery`, final response contract |
