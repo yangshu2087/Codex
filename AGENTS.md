@@ -43,6 +43,7 @@
 - Use `/Users/yangshu/Codex/docs/codex-quality-lanes.md` to route requirements, architecture, front-end, backend/API, code review, and research tasks through the correct quality lane.
 - For repositories in this workspace, prefer the GitHub flow: create a short-lived branch, run `requesting-code-review`, open a pull request, and merge only after the required review gate is satisfied or intentionally bypassed as the repository admin.
 - Treat `CODEOWNERS` as the routing layer for review responsibility. When a repository needs owner-based review, update `CODEOWNERS` rather than relying on chat memory.
+- For this solo-maintained Codex meta-workspace, use `/Users/yangshu/Codex/docs/solo-maintainer-branch-protection-policy.md` before changing branch protection or merging without an independent reviewer.
 
 ## Memory, feedback, challenge, and outcome layer
 
