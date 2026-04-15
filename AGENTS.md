@@ -44,6 +44,18 @@
 - For repositories in this workspace, prefer the GitHub flow: create a short-lived branch, run `requesting-code-review`, open a pull request, and merge only after the required review gate is satisfied or intentionally bypassed as the repository admin.
 - Treat `CODEOWNERS` as the routing layer for review responsibility. When a repository needs owner-based review, update `CODEOWNERS` rather than relying on chat memory.
 
+## Memory, feedback, challenge, and outcome layer
+
+- Use `/Users/yangshu/Codex/docs/codex-memory-governance.md` as the policy for what can become durable memory.
+- Use `/Users/yangshu/Codex/docs/codex-feedback-loop.md` when the user says Codex misunderstood, regressed, stopped early, or repeated a mistake.
+- Use `/Users/yangshu/Codex/docs/codex-intake-challenge-protocol.md` when a request asks to bypass review, skip verification, delete broadly, install broad skills, use logged-in browser/cookies, or operate on production credentials.
+- Use `/Users/yangshu/Codex/docs/codex-outcome-scorecard.md` to judge whether work delivered the intended outcome rather than only producing edits.
+- Helper scripts:
+  - `/Users/yangshu/Codex/scripts/codex-feedback-capture.sh`
+  - `/Users/yangshu/Codex/scripts/codex-memory-audit.sh`
+  - `/Users/yangshu/Codex/scripts/codex-challenge-smoke.sh`
+- Global narrow skills for this layer: `codex-memory-curator`, `codex-intake-challenge`, `outcome-driven-delivery`, and `codex-feedback-retrospective`.
+
 ## Multi-channel development quality layer
 
 - Treat architecture, backend/API, front-end/UI, UX/product-flow, design language, code review, and handoff as separate quality channels that must each provide evidence when they are in scope.

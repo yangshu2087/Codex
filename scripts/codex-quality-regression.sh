@@ -37,6 +37,32 @@ run_logged "mcp-list" codex mcp list
 run_logged "upgrade-check" "$REPO_ROOT/scripts/check-codex-upgrade.sh"
 run_logged "skill-audit" "$REPO_ROOT/scripts/skill-audit.sh"
 run_logged "quality-lane-smoke" "$REPO_ROOT/scripts/codex-quality-lane-smoke.sh"
+run_logged "challenge-smoke" "$REPO_ROOT/scripts/codex-challenge-smoke.sh"
+run_logged "memory-audit" "$REPO_ROOT/scripts/codex-memory-audit.sh"
+run_logged "feedback-capture-smoke" env CODEX_FEEDBACK_LOG="$OUT_ROOT/feedback-smoke.jsonl" "$REPO_ROOT/scripts/codex-feedback-capture.sh" --feedback "quality regression feedback smoke" --task-type "quality-regression" --root-cause "synthetic smoke" --memory-candidate "none" --action-required "none"
+
+section "outcome-smoke"
+python3 - "$OUT_ROOT" <<'PY_OUTCOME'
+from pathlib import Path
+import sys
+
+out_root = Path(sys.argv[1])
+samples = {
+    "good": "已完成\n- x\n完成证据\n- command passed\n还缺什么\n- 无\n后续建议\n- 无，等待你的下一步指令",
+    "bad": "完成了，应该可以。",
+}
+required = ["已完成", "完成证据", "还缺什么", "后续建议"]
+log = []
+for name, text in samples.items():
+    missing = [item for item in required if item not in text]
+    log.append(f"{name}: missing={missing}")
+    if name == "good" and missing:
+        raise SystemExit(f"good sample missing {missing}")
+    if name == "bad" and not missing:
+        raise SystemExit("bad sample unexpectedly passed")
+(out_root / "outcome-smoke.log").write_text("\n".join(log) + "\n", encoding="utf-8")
+print("outcome-smoke:ok")
+PY_OUTCOME
 
 section "agent-browser-smoke"
 log "running: $REPO_ROOT/scripts/agent-browser-smoke.sh $BROWSER_URL $OUT_ROOT" | tee -a "$OUT_ROOT/regression.log"
