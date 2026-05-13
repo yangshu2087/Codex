@@ -58,8 +58,12 @@ if command -v rg >/dev/null 2>&1; then
     --glob '!**/.Spotlight-V100/**' \
     --glob '!**/recovery-evidence/**' \
     --glob '!**/docs/recovery/**' \
+    --glob '!**/docs/superpowers/plans/**' \
     --glob '!**/output/**' \
     --glob '!**/artifacts/**' \
+    --glob '!**/reports/recovery/**' \
+    --glob '!**/scripts/recovery/**' \
+    --glob '!**/scripts/hermes_health_report.py' \
     --glob '!**/RECOVERY-SOURCE.md' \
     '/Volumes/AI_SSD' "$WORKSPACE" /Volumes/AI_DEV_2T/02-docs /Volumes/AI_DEV_2T/04-rag 2>/dev/null || true)"
   if [[ -n "$legacy_hits" ]]; then
