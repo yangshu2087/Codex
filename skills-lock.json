@@ -706,6 +706,36 @@
       ],
       "reviewDoc": "/Users/yangshu/Codex/docs/gpt-image-skill-usage.md",
       "runtimeNotes": "Chinese router skill for Codex/Hermes. It keeps gpt-image explicit-only, chooses among prompt-only mode, ChatGPT UI handoff mode, and live OpenAI API mode, and preserves the no-key/no-cookie/no-hidden-browser-fallback boundary."
+    },
+    "repo-ui-postcheck-summary": {
+      "source": "local-workspace-ui-governance",
+      "sourceType": "workspace-authored",
+      "installLayer": "workspace-standard-explicit-only",
+      "installedPath": "/Users/yangshu/Codex/.agents/skills/repo-ui-postcheck-summary",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/templates/ui-state-matrix.md",
+      "runtimeNotes": "Post-implementation UI handoff skill requiring design inputs, state coverage, browser/visual evidence, responsive notes, accessibility notes, and remaining visual gaps before claiming frontend/UI completion."
+    },
+    "codex-ui-capability-smoke": {
+      "source": "local-workspace-ui-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-ui-capability-smoke.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-quality-lanes.md",
+      "runtimeNotes": "One-command smoke for Codex frontend/UI capability readiness: features, MCPs, design skills, browser tools, Playwright availability, state matrix, and optional agent-browser visual evidence."
+    },
+    "ui-state-matrix-template": {
+      "source": "local-workspace-ui-governance",
+      "sourceType": "workspace-template",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/docs/templates/ui-state-matrix.md",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/templates/frontend-ui-verification.md",
+      "runtimeNotes": "Reusable UI state matrix template covering default, hover, focus-visible, active, loading, empty, error, disabled, success, responsive widths, accessibility checks, and screenshot evidence."
     }
   }
 }
