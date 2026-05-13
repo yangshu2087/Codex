@@ -637,6 +637,75 @@
           "bytes": 3214
         }
       ]
+    },
+    "reviewed-logo-generator-skill": {
+      "source": "op7418/logo-generator-skill",
+      "sourceType": "github-reviewed-creative-candidate",
+      "reviewedSources": [
+        "https://github.com/op7418/logo-generator-skill",
+        "https://raw.githubusercontent.com/op7418/logo-generator-skill/main/SKILL.md",
+        "https://raw.githubusercontent.com/op7418/logo-generator-skill/main/scripts/generate_showcase.py",
+        "https://raw.githubusercontent.com/op7418/logo-generator-skill/main/scripts/svg_to_png.py"
+      ],
+      "verdict": "creative-ui-reference-manual-chatgpt-handoff",
+      "risk": "medium",
+      "activationGate": "Default to SVG/HTML/prompt generation and manual ChatGPT UI handoff only; do not create .env files or call Gemini/OpenAI image APIs without a separate explicit approval and billing plan.",
+      "installLayer": "personal-global-reviewed-candidate",
+      "installedPath": "/Users/yangshu/.agents/skills/logo-generator",
+      "defaultEnabled": false,
+      "recommendedDefaultEnabled": false,
+      "implicitInvocation": false,
+      "credentialPolicy": "no-api-key-by-default; no-chatgpt-cookie; no-browser-login-state; manual-chatgpt-ui-only",
+      "reviewedAt": "2026-04-16",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-creative-ui-capability-playbook.md",
+      "computedHash": "f48205cef6a3b1d879fe0aa76f27b440865e15bf1be467a6aa3c498d74228324",
+      "runtimeNotes": "Observed in the personal global skill directory before this workspace playbook. Workspace governance records it as explicit-only creative/UI tooling and does not enable live API showcase generation by default.",
+      "observedInstalledPersonalGlobal": true
+    },
+    "reviewed-gpt-image-2-skill": {
+      "source": "wuyoscar/gpt_image_2_skill",
+      "sourceType": "github-vendored-reviewed-skill",
+      "reviewedSources": [
+        "https://github.com/wuyoscar/gpt_image_2_skill",
+        "https://raw.githubusercontent.com/wuyoscar/gpt_image_2_skill/main/README.zh.md",
+        "https://raw.githubusercontent.com/wuyoscar/gpt_image_2_skill/main/skills/gpt-image/SKILL.md",
+        "https://raw.githubusercontent.com/wuyoscar/gpt_image_2_skill/main/src/gpt_image_cli/cli.py"
+      ],
+      "verdict": "vendored-explicit-openai-image-skill",
+      "risk": "medium",
+      "activationGate": "Use only when the user explicitly asks for gpt-image/GPT Image 2 prompt-gallery workflows or approves OpenAI image API usage. Missing OPENAI_API_KEY downgrades the skill to reference/prompt-drafting mode only.",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/gpt-image",
+      "activeSymlinkPath": "/Users/yangshu/.agents/skills/gpt-image",
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "observedActiveSymlink": true,
+      "credentialPolicy": "requires-openai-api-key-for-live-calls; no-cookie; no-chatgpt-ui-automation; prompt-atlas-only-without-key",
+      "requiresRuntime": [
+        "uv",
+        "python>=3.11 via uv"
+      ],
+      "apiSurface": [
+        "POST /v1/images/generations",
+        "POST /v1/images/edits"
+      ],
+      "reviewedAt": "2026-04-25",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-creative-ui-capability-playbook.md",
+      "computedHash": "5e919be1286cfb4ce4e97f5476aa70ed988468e05adcc38923c1f4f069686157",
+      "runtimeNotes": "Vendored with local compatibility patch: scripts/generate.py now prefers a sibling src/gpt_image_cli directory because the upstream folder-only install path assumes repo-root src availability. Activated via symlink for explicit use, but governance remains non-default and non-implicit."
+    },
+    "gpt-image-cn-router": {
+      "source": "local-workspace-gpt-image-wrapper",
+      "sourceType": "workspace-authored",
+      "installLayer": "workspace-standard-explicit-only",
+      "installedPath": "/Users/yangshu/Codex/.agents/skills/gpt-image-cn-router",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "dependsOn": [
+        "reviewed-gpt-image-2-skill"
+      ],
+      "reviewDoc": "/Users/yangshu/Codex/docs/gpt-image-skill-usage.md",
+      "runtimeNotes": "Chinese router skill for Codex/Hermes. It keeps gpt-image explicit-only, chooses among prompt-only mode, ChatGPT UI handoff mode, and live OpenAI API mode, and preserves the no-key/no-cookie/no-hidden-browser-fallback boundary."
     }
   }
 }
