@@ -725,7 +725,8 @@
       "defaultEnabled": true,
       "implicitInvocation": false,
       "reviewDoc": "/Users/yangshu/Codex/docs/codex-quality-lanes.md",
-      "runtimeNotes": "One-command smoke for Codex frontend/UI capability readiness: features, MCPs, design skills, browser tools, Playwright availability, state matrix, and optional agent-browser visual evidence."
+      "runtimeNotes": "One-command smoke for Codex frontend/UI capability readiness: features, MCPs, design skills, browser tools, Playwright availability, state matrix, and optional agent-browser visual evidence. Updated 2026-05-17 to use hooks instead of deprecated codex_hooks and to treat js_repl/Playwright Interactive as non-default because js_repl is removed locally.",
+      "computedHash": "73ef89122027db0218acf81b8010e69c7767ade4a0ca7033f1f0ef5b3d840f23"
     },
     "ui-state-matrix-template": {
       "source": "local-workspace-ui-governance",
@@ -736,6 +737,66 @@
       "implicitInvocation": false,
       "reviewDoc": "/Users/yangshu/Codex/docs/templates/frontend-ui-verification.md",
       "runtimeNotes": "Reusable UI state matrix template covering default, hover, focus-visible, active, loading, empty, error, disabled, success, responsive widths, accessibility checks, and screenshot evidence."
+    },
+    "codex-latest-practices-2026-05-17": {
+      "source": "local-official-docs-refresh",
+      "sourceType": "workspace-governance-doc",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "computedHash": "5e66148c8267835c387590edce556b6b019fce4d0e8b7211633368f2653c7135",
+      "runtimeNotes": "Records 2026-05-17 stable-first Codex model, task-contract, /goal, plugins/MCP, remote-control, and frontend/browser decisions."
+    },
+    "codex-model-routing-smoke": {
+      "source": "local-workspace-quality-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-model-routing-smoke.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "computedHash": "e2a8989c7eb67f9f2d4c9d67694ffb37dfe95d337415e5442679c2de61f50db9",
+      "runtimeNotes": "Validates quick/default/deep/research profile model and reasoning routing; catches accidental daily xhigh drift."
+    },
+    "codex-remote-control-smoke": {
+      "source": "local-workspace-quality-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-remote-control-smoke.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "computedHash": "18fd9a8ab25e92ecbde417454a209a4b5a78f721b5d002940df554171ba9d91c",
+      "runtimeNotes": "Checks codex remote-control help and feature state without starting a persistent app-server."
+    },
+    "openai-create-plan-candidate": {
+      "source": "openai/skills/skills/.experimental/create-plan",
+      "sourceType": "official-candidate-not-installed",
+      "installLayer": "watchlist-only",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-github-skill-watchlist-2026-04-14.md",
+      "runtimeNotes": "Official planning skill candidate. Do not install until it is reviewed against local planning-with-files and task-contract rules to avoid duplicate planning routes."
+    },
+    "codex-quality-smoke-fast": {
+      "source": "local-workspace-quality-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-quality-smoke-fast.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "runtimeNotes": "Fast local quality smoke for versions, MCP, OAuth, model routing, remote-control, skill audit, challenge, and memory checks.",
+      "computedHash": "acf2d75e5655daa56cbf8f2cd5917500dbe4eedda82678b4906aca7815b922b1"
+    },
+    "codex-mcp-oauth-refresh": {
+      "source": "local-workspace-mcp-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-mcp-oauth-refresh.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "runtimeNotes": "Refreshes/checks Cloudflare and Notion MCP OAuth without printing tokens or storing credentials in Git.",
+      "computedHash": "b2edf44c14d3d637d8a6ce3cf9a849137cb9aa0934acdaa68d55a5ba8081f2a3"
     }
   }
 }

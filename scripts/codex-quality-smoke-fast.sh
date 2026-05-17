@@ -31,6 +31,10 @@ else
 fi
 
 run_required "mcp-list" codex mcp list
+run_required "upgrade-check" "$REPO_ROOT/scripts/check-codex-upgrade.sh"
+run_required "mcp-oauth-check" "$REPO_ROOT/scripts/codex-mcp-oauth-refresh.sh" --check
+run_required "model-routing-smoke" "$REPO_ROOT/scripts/codex-model-routing-smoke.sh"
+run_required "remote-control-smoke" "$REPO_ROOT/scripts/codex-remote-control-smoke.sh"
 run_required "skill-audit" "$REPO_ROOT/scripts/skill-audit.sh"
 run_required "challenge-smoke" "$REPO_ROOT/scripts/codex-challenge-smoke.sh"
 run_required "memory-audit" "$REPO_ROOT/scripts/codex-memory-audit.sh"

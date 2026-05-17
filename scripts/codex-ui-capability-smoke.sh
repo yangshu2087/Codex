@@ -43,7 +43,7 @@ else
   fail "codex CLI not found"
 fi
 
-for feature in apps plugins tool_search image_generation workspace_dependencies shell_tool multi_agent codex_hooks browser_use in_app_browser computer_use; do
+for feature in apps plugins tool_search image_generation workspace_dependencies shell_tool multi_agent hooks browser_use in_app_browser computer_use; do
   feature_enabled "$feature"
 done
 
@@ -75,7 +75,11 @@ section "Design and creative capabilities"
 file_present "$HOME/.codex/skills/figma/SKILL.md"
 file_present "$HOME/.codex/skills/figma-implement-design/SKILL.md"
 file_present "$HOME/.codex/skills/playwright/SKILL.md"
-file_present "$HOME/.codex/skills/playwright-interactive/SKILL.md"
+if codex features list 2>/dev/null | awk '$1 == "js_repl" && $2 == "removed" { found=1 } END { exit found ? 0 : 1 }'; then
+  warn "js_repl feature is removed locally; do not use Playwright Interactive as the default UI verification route"
+else
+  file_present "$HOME/.codex/skills/playwright-interactive/SKILL.md"
+fi
 file_present "$HOME/.agents/skills/product-shell-first/SKILL.md"
 file_present "$HOME/.agents/skills/skilltrust-stitch-ui-prompt-architect/SKILL.md"
 file_present "$HOME/.agents/skills/logo-generator/SKILL.md"

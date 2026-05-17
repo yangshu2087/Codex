@@ -37,10 +37,12 @@
 - Keep `skills-lock.json` in sync with installed or vendored marketplace skills.
 - Prefer preparing a safe upgrade plan and verification steps before changing binaries under `/Applications`.
 - Keep changes reproducible: if a version check or migration step is useful twice, put it into `scripts/`.
-- Keep `/Users/yangshu/Codex/docs/codex-latest-practices-2026-04-14.md` as the local record of the current stable Codex model/config/plugin/skill decisions.
+- Keep `/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md` as the current local record of stable Codex model/config/plugin/skill decisions; keep older dated docs as historical snapshots.
 - Keep `/Users/yangshu/Codex/docs/codex-github-skill-watchlist-2026-04-14.md` as the on-demand third-party skill candidate list; do not global-install those candidates without a focused review.
 - Use explicit workspace skills for high-stakes lanes when needed: `architecture-decision-review`, `backend-api-contract-review`, and `product-ux-flow-review`.
 - Use `/Users/yangshu/Codex/docs/codex-quality-lanes.md` to route requirements, architecture, front-end, backend/API, code review, and research tasks through the correct quality lane.
+- For complex work, use the current official-style task contract: Goal, Context, Constraints, Non-goals, Done when / Done criteria, and Verification. `/goal` is for long-running progress tracking only and does not replace the task contract or final evidence.
+- Prefer MCP/plugins when context is external, OAuth-protected, or frequently changing; prefer local skills/scripts when the workflow is repeatable and can be kept inside the repo.
 - For repositories in this workspace, prefer the GitHub flow: create a short-lived branch, run `requesting-code-review`, open a pull request, and merge only after the required review gate is satisfied or intentionally bypassed as the repository admin.
 - Treat `CODEOWNERS` as the routing layer for review responsibility. When a repository needs owner-based review, update `CODEOWNERS` rather than relying on chat memory.
 - For this solo-maintained Codex meta-workspace, use `/Users/yangshu/Codex/docs/solo-maintainer-branch-protection-policy.md` before changing branch protection or merging without an independent reviewer.
