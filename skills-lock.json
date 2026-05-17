@@ -637,6 +637,209 @@
           "bytes": 3214
         }
       ]
+    },
+    "reviewed-logo-generator-skill": {
+      "source": "op7418/logo-generator-skill",
+      "sourceType": "github-reviewed-creative-candidate",
+      "reviewedSources": [
+        "https://github.com/op7418/logo-generator-skill",
+        "https://raw.githubusercontent.com/op7418/logo-generator-skill/main/SKILL.md",
+        "https://raw.githubusercontent.com/op7418/logo-generator-skill/main/scripts/generate_showcase.py",
+        "https://raw.githubusercontent.com/op7418/logo-generator-skill/main/scripts/svg_to_png.py"
+      ],
+      "verdict": "creative-ui-reference-manual-chatgpt-handoff",
+      "risk": "medium",
+      "activationGate": "Default to SVG/HTML/prompt generation and manual ChatGPT UI handoff only; do not create .env files or call Gemini/OpenAI image APIs without a separate explicit approval and billing plan.",
+      "installLayer": "personal-global-reviewed-candidate",
+      "installedPath": "/Users/yangshu/.agents/skills/logo-generator",
+      "defaultEnabled": false,
+      "recommendedDefaultEnabled": false,
+      "implicitInvocation": false,
+      "credentialPolicy": "no-api-key-by-default; no-chatgpt-cookie; no-browser-login-state; manual-chatgpt-ui-only",
+      "reviewedAt": "2026-04-16",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-creative-ui-capability-playbook.md",
+      "computedHash": "f48205cef6a3b1d879fe0aa76f27b440865e15bf1be467a6aa3c498d74228324",
+      "runtimeNotes": "Observed in the personal global skill directory before this workspace playbook. Workspace governance records it as explicit-only creative/UI tooling and does not enable live API showcase generation by default.",
+      "observedInstalledPersonalGlobal": true
+    },
+    "reviewed-gpt-image-2-skill": {
+      "source": "wuyoscar/gpt_image_2_skill",
+      "sourceType": "github-vendored-reviewed-skill",
+      "reviewedSources": [
+        "https://github.com/wuyoscar/gpt_image_2_skill",
+        "https://raw.githubusercontent.com/wuyoscar/gpt_image_2_skill/main/README.zh.md",
+        "https://raw.githubusercontent.com/wuyoscar/gpt_image_2_skill/main/skills/gpt-image/SKILL.md",
+        "https://raw.githubusercontent.com/wuyoscar/gpt_image_2_skill/main/src/gpt_image_cli/cli.py"
+      ],
+      "verdict": "vendored-explicit-openai-image-skill",
+      "risk": "medium",
+      "activationGate": "Use only when the user explicitly asks for gpt-image/GPT Image 2 prompt-gallery workflows or approves OpenAI image API usage. Missing OPENAI_API_KEY downgrades the skill to reference/prompt-drafting mode only.",
+      "installLayer": "workspace-vendored-on-demand",
+      "installedPath": "/Users/yangshu/Codex/vendor/skills/gpt-image",
+      "activeSymlinkPath": "/Users/yangshu/.agents/skills/gpt-image",
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "observedActiveSymlink": true,
+      "credentialPolicy": "requires-openai-api-key-for-live-calls; no-cookie; no-chatgpt-ui-automation; prompt-atlas-only-without-key",
+      "requiresRuntime": [
+        "uv",
+        "python>=3.11 via uv"
+      ],
+      "apiSurface": [
+        "POST /v1/images/generations",
+        "POST /v1/images/edits"
+      ],
+      "reviewedAt": "2026-04-25",
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-creative-ui-capability-playbook.md",
+      "computedHash": "5e919be1286cfb4ce4e97f5476aa70ed988468e05adcc38923c1f4f069686157",
+      "runtimeNotes": "Vendored with local compatibility patch: scripts/generate.py now prefers a sibling src/gpt_image_cli directory because the upstream folder-only install path assumes repo-root src availability. Activated via symlink for explicit use, but governance remains non-default and non-implicit."
+    },
+    "gpt-image-cn-router": {
+      "source": "local-workspace-gpt-image-wrapper",
+      "sourceType": "workspace-authored",
+      "installLayer": "workspace-standard-explicit-only",
+      "installedPath": "/Users/yangshu/Codex/.agents/skills/gpt-image-cn-router",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "dependsOn": [
+        "reviewed-gpt-image-2-skill"
+      ],
+      "reviewDoc": "/Users/yangshu/Codex/docs/gpt-image-skill-usage.md",
+      "runtimeNotes": "Chinese router skill for Codex/Hermes. It keeps gpt-image explicit-only, chooses among prompt-only mode, ChatGPT UI handoff mode, and live OpenAI API mode, and preserves the no-key/no-cookie/no-hidden-browser-fallback boundary."
+    },
+    "repo-ui-postcheck-summary": {
+      "source": "local-workspace-ui-governance",
+      "sourceType": "workspace-authored",
+      "installLayer": "workspace-standard-explicit-only",
+      "installedPath": "/Users/yangshu/Codex/.agents/skills/repo-ui-postcheck-summary",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/templates/ui-state-matrix.md",
+      "runtimeNotes": "Post-implementation UI handoff skill requiring design inputs, state coverage, browser/visual evidence, responsive notes, accessibility notes, and remaining visual gaps before claiming frontend/UI completion."
+    },
+    "codex-ui-capability-smoke": {
+      "source": "local-workspace-ui-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-ui-capability-smoke.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-quality-lanes.md",
+      "runtimeNotes": "One-command smoke for Codex frontend/UI capability readiness: features, MCPs, design skills, browser tools, Playwright availability, state matrix, and optional agent-browser visual evidence. Updated 2026-05-17 to use hooks instead of deprecated codex_hooks and to treat js_repl/Playwright Interactive as non-default because js_repl is removed locally.",
+      "computedHash": "73ef89122027db0218acf81b8010e69c7767ade4a0ca7033f1f0ef5b3d840f23"
+    },
+    "ui-state-matrix-template": {
+      "source": "local-workspace-ui-governance",
+      "sourceType": "workspace-template",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/docs/templates/ui-state-matrix.md",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/templates/frontend-ui-verification.md",
+      "runtimeNotes": "Reusable UI state matrix template covering default, hover, focus-visible, active, loading, empty, error, disabled, success, responsive widths, accessibility checks, and screenshot evidence."
+    },
+    "codex-latest-practices-2026-05-17": {
+      "source": "local-official-docs-refresh",
+      "sourceType": "workspace-governance-doc",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "computedHash": "00b9458ee45bbda30d30ee14a938000c0073bebc9dbd387872eb59409c3a1c01",
+      "runtimeNotes": "Records 2026-05-17 stable-first Codex decisions plus Round 2 remote connections, auto-review, automations, browser routing, and iterative repair-loop updates."
+    },
+    "codex-model-routing-smoke": {
+      "source": "local-workspace-quality-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-model-routing-smoke.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "computedHash": "e2a8989c7eb67f9f2d4c9d67694ffb37dfe95d337415e5442679c2de61f50db9",
+      "runtimeNotes": "Validates quick/default/deep/research profile model and reasoning routing; catches accidental daily xhigh drift."
+    },
+    "codex-remote-control-smoke": {
+      "source": "local-workspace-quality-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-remote-control-smoke.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "computedHash": "18fd9a8ab25e92ecbde417454a209a4b5a78f721b5d002940df554171ba9d91c",
+      "runtimeNotes": "Checks codex remote-control help and feature state without starting a persistent app-server."
+    },
+    "openai-create-plan-candidate": {
+      "source": "openai/skills/skills/.experimental/create-plan",
+      "sourceType": "official-candidate-not-installed",
+      "installLayer": "watchlist-only",
+      "installedPath": null,
+      "defaultEnabled": false,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-github-skill-watchlist-2026-04-14.md",
+      "runtimeNotes": "Official planning skill candidate. Do not install until it is reviewed against local planning-with-files and task-contract rules to avoid duplicate planning routes."
+    },
+    "codex-quality-smoke-fast": {
+      "source": "local-workspace-quality-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-quality-smoke-fast.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "runtimeNotes": "Fast local quality smoke now includes remote readiness and auto-review safety audit.",
+      "computedHash": "52a045dc34abdd2ab08fabb7bd797cca5ffce5aa9a6da58237c5337790477af9"
+    },
+    "codex-mcp-oauth-refresh": {
+      "source": "local-workspace-mcp-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-mcp-oauth-refresh.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "runtimeNotes": "Refreshes/checks Cloudflare and Notion MCP OAuth without printing tokens or storing credentials in Git.",
+      "computedHash": "b2edf44c14d3d637d8a6ce3cf9a849137cb9aa0934acdaa68d55a5ba8081f2a3"
+    },
+    "codex-remote-readiness": {
+      "source": "local-workspace-remote-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-remote-readiness.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md",
+      "runtimeNotes": "Read-only readiness check for Codex remote/mobile host posture: CLI/app versions, feature state, host process, system sleep posture, listener exposure, and SSH aliases. Does not start a daemon. Updated to avoid confusing displaysleep with system sleep.",
+      "computedHash": "c4eba4727d986b0ad84176ffe08a5258ed53adfeccc38d2a7a1562516ae948e6"
+    },
+    "codex-auto-review-safety-audit": {
+      "source": "local-workspace-sandbox-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-auto-review-safety-audit.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md",
+      "runtimeNotes": "Audits local Codex config for auto-review posture, top-level approval/sandbox settings, guarded profile routing, and broad policy strings.",
+      "computedHash": "fd14479240cc462856c1b7932dcca7a24580b849752fa9300a4b437359df1a39"
+    },
+    "codex-iterative-repair-loop-template": {
+      "source": "local-user-prompt-governance",
+      "sourceType": "user-prompt-template",
+      "installLayer": "user-config",
+      "installedPath": "/Users/yangshu/.codex/prompts/iterative-repair-loop-template.md",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md",
+      "runtimeNotes": "Reusable checkpointed repair-loop prompt template for stubborn failures and migrations; stores iteration evidence and remaining delta.",
+      "computedHash": "b999248054675b884ab6a20783d96aaea171dae14f553d5e933dcddfa1de52d7"
+    },
+    "codex-quality-regression": {
+      "source": "local-workspace-quality-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-quality-regression.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "computedHash": "c0ff47e6ab4a7333abc3c64069545e88dd3dc58717ea9d6e1e7c79fb9b66385e",
+      "runtimeNotes": "Full quality regression now includes remote readiness and auto-review safety audit."
     }
   }
 }

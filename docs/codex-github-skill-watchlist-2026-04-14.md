@@ -5,7 +5,7 @@ Policy: official sources first, third-party skills as on-demand candidates only.
 ## Official baseline
 
 - `openai/skills`: source of truth for curated Codex skills. Keep using the official `frontend-skill`, `playwright`, `figma-*`, `gh-fix-ci`, `gh-address-comments`, `security-best-practices`, and `openai-docs` patterns where they match local needs.
-- `openai/codex`: stable CLI source. Current selected stable release is `rust-v0.120.0`; do not follow `0.121.0-alpha.*` unless the stability policy changes.
+- `openai/codex`: stable CLI source. Current selected stable release is `rust-v0.130.0`; do not follow `0.131.0-alpha.*` unless the stability policy changes.
 
 ## Third-party candidates
 
@@ -57,6 +57,18 @@ Source of record: `/Users/yangshu/Codex/docs/codex-openclaw-external-channel-int
 `HKUDS/CLI-Anything` is useful as a Codex/Hermes harness-generation methodology: build/refine/test/validate a `cli-anything-<software>` wrapper around a real backend, require JSON output, and verify with subprocess tests. It is not enabled by default because CLI-Hub is a pip-based installer, writes `~/.cli-hub`, has analytics unless `CLI_HUB_NO_ANALYTICS=1`, and generated harnesses may control real desktop apps or external services. The local Hermes-Agent checkout is dirty and outside this workspace, so this pass does not edit it; if later adopted, vendor only a narrow explicit-only skill subset and keep install/publish/app-control steps behind manual approval.
 
 All new entries added to `skills-lock.json` must remain `defaultEnabled:false` and `implicitInvocation:false` until a later focused review explicitly promotes them.
+
+
+## 2026-05-17 official refresh
+
+Source of record: `/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md`. This pass does not activate new third-party skills. It updates the watchlist so future agents do not reinstall capabilities already covered locally.
+
+| Candidate | Current decision | Reasoning | Next gate |
+|---|---|---|---|
+| `openai/skills/.experimental/create-plan` | Candidate only | Useful official planning pattern, but overlaps with local task-card rules and planning-with-files. | Review only if repeated planning failures remain after the 2026-05-17 task-contract update. |
+| `openai/skills` Playwright/browser skills | Reference / already covered | Local Browser, Chrome, `agent-browser`, and Playwright skills already cover the default frontend evidence loop. | Do not add `js_repl`-dependent flows as default while local `js_repl` is removed. |
+| `openai/codex remote-control` | Smoke only | Present in `0.130.0`, but local feature state remains under-development and false. | Use `scripts/codex-remote-control-smoke.sh`; do not start persistent app-server by default. |
+| `gpt-5.3-codex-spark` | Do not preconfigure | Research-preview availability is account-dependent. | Add a profile only after the model picker confirms availability and profile smoke passes. |
 
 ## Review checklist before adopting a candidate
 

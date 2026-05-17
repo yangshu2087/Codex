@@ -1,12 +1,12 @@
 # Codex development capability roadmap
 
-Purpose: define a reusable, safety-first capability router for Codex project development across code, architecture, backend/API, frontend/UI, UX/product-flow, review, deployment, handoff, and external-channel skills.
+Purpose: define a reusable, safety-first capability router for Codex project development across code, architecture, backend/API, frontend/UI, creative/UI assets, UX/product-flow, review, deployment, handoff, and external-channel skills.
 
 This is a routing and verification document. It does not install tools, write credentials, promote third-party skills, or modify OpenClaw/Hermes configuration.
 
 ## Task card
 
-- Goal: make Codex project-development work repeatable across implementation, architecture, backend/API, frontend/UI, UX, review, deploy, handoff, and external capability channels.
+- Goal: make Codex project-development work repeatable across implementation, architecture, backend/API, frontend/UI, creative/UI assets, UX, review, deploy, handoff, and external capability channels.
 - Constraints: use official/local capabilities first; keep third-party capabilities `reviewed-candidate` or explicit-only; do not rely on browser login state, main-account cookies, or unreviewed package installs; respect local resource pressure and prefer single-agent when `codex-runtime-health.sh` reports high pressure.
 - Non-goals: no global installation of broad skill packs; no automatic deployment or external writes; no OpenClaw public-ingress expansion; no replacement for GitHub branch/review policy.
 - Done criteria: each lane has an entrypoint, required evidence, default tools, escalation path, rollback story, and verification command.
@@ -16,6 +16,7 @@ This is a routing and verification document. It does not install tools, write cr
   - `codex mcp list`
   - `/Users/yangshu/Codex/scripts/codex-runtime-health.sh`
   - `/Users/yangshu/Codex/scripts/codex-dev-capability-smoke.sh`
+  - `/Users/yangshu/Codex/scripts/codex-creative-ui-smoke.sh`
   - `/Users/yangshu/Codex/scripts/skill-smoke.sh`
   - `/Users/yangshu/Codex/scripts/codex-capability-audit.sh`
 
@@ -37,11 +38,24 @@ Recommendation: use a layered router. Prompts and skills guide the work; scripts
 | Architecture | `architecture-decision-review`, this roadmap | Option comparison, tradeoffs, rollout, rollback, risks, observability | docs, diagrams, ADR notes | Read-only subagents for exploration when resource health allows | Revert ADR/docs; keep code unchanged until decision accepted |
 | Backend/API | `backend-api-contract-review`, `docs/templates/api-contract-checklist.md` | API contract, error semantics, permissions, data consistency, observability, targeted regression | OpenAI docs, Context7, Cloudflare API MCP, Vercel MCP, route/unit tests | External APIs only with scoped credentials and explicit permission | Revert route/schema changes; roll back migrations using documented plan |
 | Frontend/UI | `frontend-design-review`, `DESIGN.md`, `docs/templates/frontend-ui-verification.md` | Visual thesis, design source, state coverage, browser/screenshot evidence, responsive notes | Figma tools, agent-browser, screenshot, project dev server | Canva/Figma generation only when explicitly requested | Revert component/CSS changes; retain screenshots as evidence |
+| Creative/UI assets | `docs/codex-creative-ui-capability-playbook.md`, `docs/templates/creative-asset-brief.md`, `docs/templates/chatgpt-image-handoff.md` | Creative brief, ChatGPT UI prompt handoff, manual-generation boundary, returned asset path, browser/screenshot evidence | `logo-generator`, `imagegen --dry-run`, agent-browser, screenshot | ChatGPT UI manual generation only by default; no API live calls without a new plan | Delete handoff/output artifacts; revert docs/templates/script/lock entries |
 | UX/product flow | `product-ux-flow-review`, product contract | User goal, primary journey, friction paths, accessibility/copy expectations, state coverage | browser/visual pass, screenshot, accessibility/state notes | Notion/Google docs for product context when supplied | Revert UX copy/flow changes; preserve contract notes |
 | Code review | `/review`, `requesting-code-review`, `docs/code_review.md` | Findings or no-findings statement, lane evidence, targeted retest | Codex review mode, GitHub PR review, local diff | Reviewer subagents for read-heavy large diffs only | Apply/revert fix commits; rerun `/review` |
 | Deploy/ops | Vercel MCP, Cloudflare API MCP, deploy skills | Environment contract, rollback, logs, healthcheck, domain/permission notes | Vercel/Cloudflare docs and MCPs | Provider-specific deployment only after explicit request | Provider rollback, previous deployment promotion, config revert |
 | Handoff | `agent-handoff-governor`, `update-agent-handoff.sh` | Branch, changed files, verification, open risks, next step | `docs/agent-handoff.md`, GitHub PR summary, Notion if requested | Slack/Notion writes only with explicit target | Revert handoff doc or add correction note |
 | External channel / third-party skills | `skills-lock.json`, watchlist docs, intake docs | Source, hash, license/risk, credential policy, defaultEnabled/implicitInvocation=false | reviewed-candidate docs and lock entries | Vendored-on-demand only after reading `SKILL.md` and scripts | Remove lock/doc/vendor entry; no credential cleanup if not activated |
+
+## Creative / UI asset capability contract
+
+Default mode for creative assets is manual ChatGPT UI handoff, not API billing. Codex may prepare briefs, SVG/logo concepts, HTML showcases, and copy-ready prompts, but must not call OpenAI/Gemini image APIs unless a later task explicitly changes the policy.
+
+- Contract: creative brief, output target, prompt handoff, manual generation note, returned asset path, and visual verification method.
+- Error semantics: `missing_api_key_allowed`, `manual_chatgpt_required`, `provider_key_present_not_used`, and `browser_evidence_missing`.
+- Permissions: no API-key writes, no browser cookies, no ChatGPT login-state automation, and no automatic Gemini/Nano Banana calls.
+- Data consistency: keep prompt, date, target project, output path, and screenshot evidence together; separate repo-native SVG/HTML from AI-generated PNG/JPG.
+- Targeted regression: run `/Users/yangshu/Codex/scripts/codex-creative-ui-smoke.sh` plus `skill-smoke.sh` before claiming the creative lane is ready.
+
+Use `/Users/yangshu/Codex/docs/codex-creative-ui-capability-playbook.md` for the detailed workflow and `/Users/yangshu/Codex/docs/templates/chatgpt-image-handoff.md` when a prompt must be pasted into ChatGPT UI manually.
 
 ## Backend / API capability contract
 
