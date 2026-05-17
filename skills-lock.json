@@ -745,8 +745,8 @@
       "installedPath": "/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md",
       "defaultEnabled": true,
       "implicitInvocation": false,
-      "computedHash": "5e66148c8267835c387590edce556b6b019fce4d0e8b7211633368f2653c7135",
-      "runtimeNotes": "Records 2026-05-17 stable-first Codex model, task-contract, /goal, plugins/MCP, remote-control, and frontend/browser decisions."
+      "computedHash": "00b9458ee45bbda30d30ee14a938000c0073bebc9dbd387872eb59409c3a1c01",
+      "runtimeNotes": "Records 2026-05-17 stable-first Codex decisions plus Round 2 remote connections, auto-review, automations, browser routing, and iterative repair-loop updates."
     },
     "codex-model-routing-smoke": {
       "source": "local-workspace-quality-governance",
@@ -785,8 +785,8 @@
       "installedPath": "/Users/yangshu/Codex/scripts/codex-quality-smoke-fast.sh",
       "defaultEnabled": true,
       "implicitInvocation": false,
-      "runtimeNotes": "Fast local quality smoke for versions, MCP, OAuth, model routing, remote-control, skill audit, challenge, and memory checks.",
-      "computedHash": "acf2d75e5655daa56cbf8f2cd5917500dbe4eedda82678b4906aca7815b922b1"
+      "runtimeNotes": "Fast local quality smoke now includes remote readiness and auto-review safety audit.",
+      "computedHash": "52a045dc34abdd2ab08fabb7bd797cca5ffce5aa9a6da58237c5337790477af9"
     },
     "codex-mcp-oauth-refresh": {
       "source": "local-workspace-mcp-governance",
@@ -797,6 +797,49 @@
       "implicitInvocation": false,
       "runtimeNotes": "Refreshes/checks Cloudflare and Notion MCP OAuth without printing tokens or storing credentials in Git.",
       "computedHash": "b2edf44c14d3d637d8a6ce3cf9a849137cb9aa0934acdaa68d55a5ba8081f2a3"
+    },
+    "codex-remote-readiness": {
+      "source": "local-workspace-remote-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-remote-readiness.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md",
+      "runtimeNotes": "Read-only readiness check for Codex remote/mobile host posture: CLI/app versions, feature state, host process, sleep posture, listener exposure, and SSH aliases. Does not start a daemon.",
+      "computedHash": "b904627f47a9689cfa0c24db6765dc8468f0ef60bb254dc67f402508d96a835c"
+    },
+    "codex-auto-review-safety-audit": {
+      "source": "local-workspace-sandbox-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-auto-review-safety-audit.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md",
+      "runtimeNotes": "Audits local Codex config for auto-review posture, top-level approval/sandbox settings, guarded profile routing, and broad policy strings.",
+      "computedHash": "fd14479240cc462856c1b7932dcca7a24580b849752fa9300a4b437359df1a39"
+    },
+    "codex-iterative-repair-loop-template": {
+      "source": "local-user-prompt-governance",
+      "sourceType": "user-prompt-template",
+      "installLayer": "user-config",
+      "installedPath": "/Users/yangshu/.codex/prompts/iterative-repair-loop-template.md",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "reviewDoc": "/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md",
+      "runtimeNotes": "Reusable checkpointed repair-loop prompt template for stubborn failures and migrations; stores iteration evidence and remaining delta.",
+      "computedHash": "b999248054675b884ab6a20783d96aaea171dae14f553d5e933dcddfa1de52d7"
+    },
+    "codex-quality-regression": {
+      "source": "local-workspace-quality-governance",
+      "sourceType": "workspace-script",
+      "installLayer": "workspace-standard",
+      "installedPath": "/Users/yangshu/Codex/scripts/codex-quality-regression.sh",
+      "defaultEnabled": true,
+      "implicitInvocation": false,
+      "computedHash": "c0ff47e6ab4a7333abc3c64069545e88dd3dc58717ea9d6e1e7c79fb9b66385e",
+      "runtimeNotes": "Full quality regression now includes remote readiness and auto-review safety audit."
     }
   }
 }

@@ -35,6 +35,8 @@ section "version"
 run_logged "features" codex features list
 run_logged "mcp-list" codex mcp list
 run_logged "upgrade-check" "$REPO_ROOT/scripts/check-codex-upgrade.sh"
+run_logged "remote-readiness" "$REPO_ROOT/scripts/codex-remote-readiness.sh"
+run_logged "auto-review-safety-audit" "$REPO_ROOT/scripts/codex-auto-review-safety-audit.sh"
 run_logged "skill-audit" "$REPO_ROOT/scripts/skill-audit.sh"
 run_logged "quality-lane-smoke" "$REPO_ROOT/scripts/codex-quality-lane-smoke.sh"
 run_logged "challenge-smoke" "$REPO_ROOT/scripts/codex-challenge-smoke.sh"
