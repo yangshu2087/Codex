@@ -65,10 +65,10 @@ fi
 if command -v pmset >/dev/null 2>&1; then
   pmset -g custom > "$OUT_ROOT/pmset-custom.txt" 2>&1 || true
   pmset -g assertions > "$OUT_ROOT/pmset-assertions.txt" 2>&1 || true
-  if awk '/ sleep[[:space:]]+[1-9][0-9]*/ { found=1 } END { exit found ? 0 : 1 }' "$OUT_ROOT/pmset-custom.txt"; then
-    warn "Mac sleep timer appears non-zero; remote Codex sessions stop if the host sleeps"
+  if awk 'tolower($1) == "sleep" && $2 ~ /^[1-9][0-9]*$/ { found=1 } END { exit found ? 0 : 1 }' "$OUT_ROOT/pmset-custom.txt"; then
+    warn "Mac system sleep timer appears non-zero; remote Codex sessions stop if the host sleeps"
   else
-    pass "Mac sleep timer did not show an obvious non-zero sleep setting"
+    pass "Mac system sleep is disabled or not obviously non-zero"
   fi
 else
   warn "pmset unavailable; cannot inspect Mac sleep posture"

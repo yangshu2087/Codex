@@ -806,8 +806,8 @@
       "defaultEnabled": true,
       "implicitInvocation": false,
       "reviewDoc": "/Users/yangshu/Codex/docs/codex-latest-practices-2026-05-17.md",
-      "runtimeNotes": "Read-only readiness check for Codex remote/mobile host posture: CLI/app versions, feature state, host process, sleep posture, listener exposure, and SSH aliases. Does not start a daemon.",
-      "computedHash": "b904627f47a9689cfa0c24db6765dc8468f0ef60bb254dc67f402508d96a835c"
+      "runtimeNotes": "Read-only readiness check for Codex remote/mobile host posture: CLI/app versions, feature state, host process, system sleep posture, listener exposure, and SSH aliases. Does not start a daemon. Updated to avoid confusing displaysleep with system sleep.",
+      "computedHash": "c4eba4727d986b0ad84176ffe08a5258ed53adfeccc38d2a7a1562516ae948e6"
     },
     "codex-auto-review-safety-audit": {
       "source": "local-workspace-sandbox-governance",
